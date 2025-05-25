@@ -1,5 +1,22 @@
 console.log(`Day 15 - 40 Days of JavaScript - JavaScript Array Master Course\n\n`);
 
+{ 
+  // T-017: Create an Array of alphanumeric strings. Sort the elements in both ascending and descending orders. You must be doing this in an immutable way such that the source array never gets modified.
+
+  const alphanumericArray = ['XGG2', 'MGT9', '2NBT', 'A9KW', '0171'];
+
+  const ascSort = alphanumericArray.toSorted((a, b) => {
+    return a === b ? 0 : a > b ? 1 : -1;
+  });
+  const descSort = alphanumericArray.toSorted((a, b) => {
+    return a === b ? 0 : a > b ? -1 : 1;
+  });
+
+  console.log("Ascending Sort", ascSort); //Output: ['0171', '2NBT', 'A9KW', 'MGT9', 'XGG2']
+  console.log("Descending Sort", descSort); //Output: ['XGG2', 'MGT9', 'A9KW', '2NBT', '0171']
+  console.log("Original Array", alphanumericArray); //Output:  ['XGG2', 'MGT9', '2NBT', 'A9KW', '0171']
+}
+
 console.log(`✅ T-001: Create an array of 5 elements using the Array Constructor.\n`);
 console.log(`Ans:
 const arrOfFiveElem = new Array(1,2,3,4,5);
@@ -235,32 +252,32 @@ console.log(`\n`);
 
 console.log(`✅ T-017: Create an Array of alphanumeric strings. Sort the elements in both ascending and descending orders. You must be doing this in an immutable way such that the source array never gets modified.\n`);
 console.log(`Ans:
-const names = ["deepak", "eti", "chandan", "belal", "azlan", "chitra"];
-// ascending sort
-const ascSort = names.toSorted((a, b) => {
-  return a === b ? 0 : a > b ? 1 : -1
-});
-// descending sort
-const descSort = names.toSorted((a, b) => {
-  return a === b ? 0 : a > b ? -1 : 1
-});
-console.log("Ascending sort ", ascSort); // Output:  ['azlan', 'belal', 'chandan', 'chitra', 'deepak', 'eti']
-console.log("Descending sort ", descSort); //Output: ['eti', 'deepak', 'chitra', 'chandan', 'belal', 'azlan']
-console.log("Original array ", names); // Output: ["deepak", "eti", "chandan", "belal", "azlan", "chitra"];
+  const alphanumericArray = ['XGG2', 'MGT9', '2NBT', 'A9KW', '0171'];
+
+  const ascSort = alphanumericArray.toSorted((a, b) => {
+    return a === b ? 0 : a > b ? 1 : -1;
+  });
+  const descSort = alphanumericArray.toSorted((a, b) => {
+    return a === b ? 0 : a > b ? -1 : 1;
+  });
+
+  console.log("Ascending Sort", ascSort); //Output: ['0171', '2NBT', 'A9KW', 'MGT9', 'XGG2']
+  console.log("Descending Sort", descSort); //Output: ['XGG2', 'MGT9', 'A9KW', '2NBT', '0171']
+  console.log("Original Array", alphanumericArray); //Output:  ['XGG2', 'MGT9', '2NBT', 'A9KW', '0171']
 `);
 {
-  const names = ["deepak", "eti", "chandan", "belal", "azlan", "chitra"];
-  // ascending sort
-  const ascSort = names.toSorted((a, b) => {
-    return a === b ? 0 : a > b ? 1 : -1
+  const alphanumericArray = ['XGG2', 'MGT9', '2NBT', 'A9KW', '0171'];
+
+  const ascSort = alphanumericArray.toSorted((a, b) => {
+    return a === b ? 0 : a > b ? 1 : -1;
   });
-  // descending sort
-  const descSort = names.toSorted((a, b) => {
-    return a === b ? 0 : a > b ? -1 : 1
+  const descSort = alphanumericArray.toSorted((a, b) => {
+    return a === b ? 0 : a > b ? -1 : 1;
   });
-  console.log("Ascending sort ", ascSort); // Output:  ['azlan', 'belal', 'chandan', 'chitra', 'deepak', 'eti']
-  console.log("Descending sort ", descSort); //Output: ['eti', 'deepak', 'chitra', 'chandan', 'belal', 'azlan']
-  console.log("Original array ", names); // Output: ["deepak", "eti", "chandan", "belal", "azlan", "chitra"];
+
+  console.log("Ascending Sort", ascSort); //Output: ['0171', '2NBT', 'A9KW', 'MGT9', 'XGG2']
+  console.log("Descending Sort", descSort); //Output: ['XGG2', 'MGT9', 'A9KW', '2NBT', '0171']
+  console.log("Original Array", alphanumericArray); //Output:  ['XGG2', 'MGT9', '2NBT', 'A9KW', '0171']
 }
 console.log(`\n`);
 
@@ -1438,3 +1455,17 @@ console.log(`Ans:
   console.log(commonElements); //Output: [3, 4]
 }
 console.log(`\n`);
+
+{
+  function alphanumericString() {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result;
+    for(let i= 0;  i < 10; i ++) {
+      result = characters.charAt(Math.floor(Math.random() * characters.length))
+    }
+    return result;
+  }
+
+  console.log(alphanumericString());
+  
+}
