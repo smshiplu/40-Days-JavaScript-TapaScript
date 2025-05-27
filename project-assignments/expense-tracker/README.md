@@ -55,22 +55,18 @@ const expenses = [
   {id: 915, amount: 500, category: 'rent', description: 'House rent'}
 ];
 
-console.log(`\n
-  Functions:
-  1. addingExpense(amount, category, description)
-  2. removingExpense(id)
-  3. updatingExpense(expenseObj)
-\n`);
-
-function createExpenseTracker(userInfo) {
-  if(userInfo.initialBudget < 500 ) {
-    console.log(`Required minimum budget of 500`);
-    return
+function CreateExpenseTracker(userInfo) {
+  function validation() {
+    if(userInfo.initialBudget < 500 ) {
+      console.log(`Required minimum budget of 500\n`);
+      return
+    }
+    if(!userInfo.email) {
+      console.log(`User must required an email address\n`);
+      return
+    }
   }
-  if(!userInfo.email) {
-    console.log(`User must required an email address`);
-    return
-  }
+  validation();
 
   function createUser() {
     return {
@@ -80,21 +76,34 @@ function createExpenseTracker(userInfo) {
       budget: userInfo.initialBudget
     }
   }
-  let user = createUser(userInfo);
+  // this.user = createUser();
 
-  if(!user) {
-    console.log(`Create user first to use expanse tracker!`);
-    return
+  // making user property private
+  let user = createUser();
+  function getUser() {
+    return user;
   }
+  
+  function checkUserCreatedOrNot(user) {
+    if(!user) {
+      console.log(`Create user first to use expanse tracker!\n`);
+      return;
+    } else {
+      console.log(`User has been created. Expense Tracker is ready to use.\n`);
+    }
+  }
+  checkUserCreatedOrNot(getUser());
 
+
+  //generate random ID for expense generation
   function generateRandomId() {
     return Math.floor(Math.random() * 1000);
   }
-
+  
   //add expense
-  function addingExpense(amount, category, description) {
-    if(amount > user.budget) {
-      console.log(`Amount is exceeding your budget to add expense`);
+  this.addExpense = function (amount, category, description) {
+    if(amount > getUser().budget) {
+      console.log(`Amount is exceeding your budget to add expense\n`);
       return;
     }
     
@@ -105,107 +114,101 @@ function createExpenseTracker(userInfo) {
       description
     };
     expenses.push(obj);
+    console.log(`\n`);
+    console.log(`Expense successfully added - ${JSON.stringify(obj)}\n`);
   }
-  
-  addingExpense(80, "food", "Breakfast");
-  addingExpense(60, "food", "Dinner");
-  addingExpense(150, "papers", "Office expense");
 
   //remove expense
-  function removingExpense(id) {
+  this.removeExpense = function(id) {
     const expenseObj = expenses.find((expense) => {
       return expense.id === id;
     });
     if(!expenseObj) {
-      console.log("ID didn't match to remove expense. Please try with correct ID");
+      console.log(`ID didn't match to remove expense. Please try with correct ID\n`);
       return;
     }
     const expenseIndex = expenses.indexOf(expenseObj)
     expenses.splice(expenseIndex, 1);
+    console.log(`\n`);
+    console.log(`Expense successfully removed - ${JSON.stringify(expenseObj)}\n`);
   }
-  // removingExpense(915);
 
-  //Update expense
-  function updatingExpense(expenseToUpdate) {
+  //update expense
+  this.updateExpense = function (expenseToUpdate) {
     const expenseFound = expenses.find(expense => expense.id === expenseToUpdate.id);
     
     if(!expenseFound) {
-      console.log("Expense didn't found to update.");
+      console.log(`Expense didn't found to update\n`);
       return;
     }
     
-    if(expenseToUpdate.amount > remainingBudget() ) {
-      console.log(`Amount is exceeding your budget to update expense.`);
+    if(expenseToUpdate.amount > remainingBudget(getUser()) ) {
+      console.log(`Amount is exceeding your budget to update expense\n`);
       return;
     } 
 
     const expenseIndex = expenses.indexOf(expenseFound);
-    expenses.splice(expenseIndex, 1, expenseToUpdate); 
+    expenses.splice(expenseIndex, 1, expenseToUpdate);
+    console.log(`\n`);
+    console.log(`Expense successfully updated - ${JSON.stringify(expenseToUpdate)}\n`);
   }
 
-  updatingExpense({id: 990, amount: 700, category: 'tour trip', description: 'Entertainment'});
-  updatingExpense({id: 211, amount: 300, category: 'rent', description: 'Office Rent'});
-
-  function expenseByCategory(categoryName) {
+  //get expenses by category
+  this.expenseByCategory = function (categoryName) {
     const expensesByCat = expenses.filter(expense => {
       return expense.category === categoryName
     });
     console.log(`\n`);
-    console.log("Getting expense by category:", expensesByCat);
+    console.log(`Get expense by category (${categoryName}) -`, expensesByCat);
   }
-  expenseByCategory("food"); 
 
-  function highestExpense() {
-    const hightExpense = expenses.map(expense => {
+  //highest expense
+  this.highestExpense = function () {
+    const highestExpense = expenses.map(expense => {
       return expense.amount;
     }).reduce((accumulator, currentAmount) => {
       return currentAmount > accumulator ? currentAmount : accumulator
     }, 0);
     console.log(`\n`);
-    console.log("Height Expense Amount:", hightExpense);
+    console.log("Height expense amount - ", highestExpense);
   }
-  highestExpense();
 
-  function lowestExpense() {
+  //lowest expense
+  this.lowestExpense = function () {
     const allExpenses = expenses.map(expense => {
       return expense.amount;
     });
     const lowestExpense = Math.min(...allExpenses);
     console.log(`\n`);
-    console.log("Lowest Expense Amount:", lowestExpense);
+    console.log("Lowest expense amount - ", lowestExpense);
   }
-  lowestExpense();
 
-  function getUserInfo() {
+  //get user info
+  this.getUserInfo = function() {
     console.log(`\n`);
-    arguments.length > 0 ? console.log("UPDATED USER INFO:"): console.log("USER INFO:");
-    console.log(`Name: ${user.fname.toUpperCase()} ${user.lname.toUpperCase()}, Email: ${user.email}, Remaining deposit ${remainingBudget()} of total ${user.budget}`);
+    arguments.length > 0 ? console.log("Updated user info - "): console.log("User info - ");
+    console.log(`Name: ${getUser().fname.toUpperCase()} ${getUser().lname.toUpperCase()}, Email: ${getUser().email}, Remaining deposit ${remainingBudget(getUser())} of total ${getUser().budget}`);
   }
-  getUserInfo();
 
-  function showAllExpenses() {
+  //show all expenses
+  this.showAllExpenses = function () {
     console.log(`\n`);
-    console.log("All EXPENSE: ");
+    console.log("All expenses - ");
     expenses.forEach(expense => {
       console.log(`${expense.category}: `, expense.amount);
     });
   }
-  showAllExpenses();
 
-  function updateUserData(userObj) {
-    if(user.email !== userObj.email) {
-      console.log(`User email didn't match. Please provide correct user email`);
+  //update user data
+  this.updateUserData = function (userObj) {
+    if(getUser().email !== userObj.email) {
+      console.log(`\nUser email didn't match. Please provide correct user email to update user info`);
       return ;
     }
 
-    user = {...user, ...userObj}
-    getUserInfo("");
+    user = {...getUser(), ...userObj}
+    this.getUserInfo("");
   }
-  const userObj = {
-    email: "user@example.com",
-    lname: "Azlan"
-  }
-  updateUserData(userObj);
 
   function totalExpense() {
     const total = expenses
@@ -216,21 +219,12 @@ function createExpenseTracker(userInfo) {
     return total;
   }
 
-  function remainingBudget() {
+  function remainingBudget(user) {
     const total = user.budget - totalExpense();
     return total;
   }
 
-  function statLog() {
-    console.log(`\n` );
-    console.log("STAT LOGS:");
-    console.log("Expenses Array:", expenses);
-    console.log("Total Expense:", totalExpense());
-    console.log("Remaining Budget:", remainingBudget());
-  }
-  statLog();
-
-} // createExpenseTracker()
+} //CreateExpenseTracker
 
 
 const userInfo = {
@@ -239,5 +233,21 @@ const userInfo = {
   email: "user@example.com",
   initialBudget: 5000
 }
-createExpenseTracker(userInfo)
+const expenseTracker = new CreateExpenseTracker(userInfo);
+expenseTracker.addExpense(60, "food", "Dinner");
+expenseTracker.removeExpense(915);
+expenseTracker.updateExpense({id: 990, amount: 1100, category: 'tour trip', description: 'Entertainment'});
+expenseTracker.expenseByCategory("food");
+expenseTracker.highestExpense();
+expenseTracker.lowestExpense();
+expenseTracker.getUserInfo();
+expenseTracker.showAllExpenses();
+
+const userData = {
+  email: "user@example.com",
+  lname: "Azlan"
+}
+expenseTracker.updateUserData(userData);
+console.log(`\nExpenses - `, expenses, `\n`);
+
 ```
