@@ -6,7 +6,7 @@ const print = function() {
     const message = 'Hello '
                         + name
                         + ', Your wish `'
-                        + wish
+                        + +wish
                         + '` may come true!';
     logger(message);
     document.getElementById('output').innerHTML = '<span class="message">' + message + '</span>';
