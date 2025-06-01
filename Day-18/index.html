@@ -4,8 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Day 18 - 40 Days of JavaScript - DOM Manipulations</title>
+  <link rel="stylesheet" href="./index.css">
+  <script defer src="./task.js"></script>
 </head>
-<body>
+<body class="dark">
   <h1>Day 18 - 40 Days of JavaScript - DOM Manipulations</h1>
+  <hr>
+  <h2>Task 1: Create a form dynamically using JavaScript and manipulate its behavior</h2>
+  <div id="dynamic-form"></div>
+
+  <hr style="margin:50px 0;">
+
+  <h2>Task 2: Add, delete, and search rows in a dynamic table</h2>
+  <form id="add-table-data">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" name="name" maxlength="50">
+    </div>
+    <div>
+      <label for="age">Age</label>
+      <input type="number" name="age">
+    </div>
+    <div>
+      <label for="role">Role</label>
+      <select name="role" id="role">
+        <option value="">Select one</option>
+        <option value="senior_developer">Senior developer</option>
+        <option value="junior_developer">Junior developer</option>
+        <option value="intern_developer">Intern developer</option>
+      </select>
+    </div>
+    <div>
+      <button type="submit">Add Data</button>
+    </div>
+  </form>
+  <div>
+    <input type="search" id="searchRow" onkeyup="searchTr(this)" placeholder="search...">
+    <table id="dynamic-table"></table>
+  </div>
+  
+  <hr style="margin:50px 0;">
+
+  <h2>Task 3: Theme Switcher with Persistence</h2>
+  <div id="theme-switch">
+    <button class="btn sun hide" onclick="lightTheme()">🌞</button>
+    <button class="btn moon" onclick="darkTheme()">🌙</button>
+  </div>
 </body>
 </html>
