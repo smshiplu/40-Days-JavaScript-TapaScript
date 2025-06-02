@@ -133,6 +133,6 @@ function removeActiveClassFromButton() {
 ```
 
 
-[![day-19](./images/Day-19-task-project-tab.jpg)]("Rendered Image")
+![day-19](./images/Day-19-task-project-tab.jpg)
 
 Please find the task assignments in the [Task File](./task.md).
