@@ -8,6 +8,36 @@
 </head>
 <body>
   <h1>Day 19 - 40 Days of JavaScript - JavaScript Events</h1>
-  <button onclick="handleOnclick()">onclickEvent</button>
+  <button onclick="onclickAttribute('hello')">onclickEvent</button>
+  <button id="btn2">Btn2</button>
+  <button id="btn3">Btn3</button>
+  <button id="countBtn">Count++</button>
+  
+  <hr style="margin: 30px 0;" />
+  
+  <div id="grandParent">
+    <div id="parent">
+      <button id="child">Child</button>
+    </div>
+  </div>
+
+  <hr style="margin: 30px 0;" />
+
+  <div id="anotherParent" style="padding: 30px; background-color: #888;">
+    <button id="anotherChild">Another Child</button>
+  </div>
+
+  <hr style="margin: 30px 0;" />
+
+  <ul id="myList">
+    <li>list 1</li>
+    <li>list 2</li>
+    <li>list 3</li>
+  </ul>
+
+  <hr style="margin: 30px 0;" />
+
+  <div id="welcome-message">Welcome!</div>
+  <button onclick="getUser('azlan')">User</button>
 </body>
-</html>
+</html> 

@@ -1,0 +1,28 @@
+.tab-headers {
+  width: 100%;
+  border-bottom: 2px solid #000;
+}
+.tab-headers button {
+  padding:6px 10px ;
+  border-bottom: none;
+  cursor: pointer;
+  transition: all 100ms ease-in-out;
+}
+.tab-headers button.active {
+  background-color: #ddd;
+  color: blue;
+  font-weight: bold;
+}
+.tab-headers button:active {
+  scale: 0.98;
+}
+.tab-contents {
+  background-color: #ddd;
+}
+.tab-contents .content {
+  padding: 20px 10px;
+  display: none;
+}
+.tab-contents .content.active {
+  display: block;
+}
