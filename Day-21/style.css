@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #333;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#quiz-app {
+  background-color: rgba(0,0,0, 0.1);
+  border: 1px solid #555;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+}
+
+.timer {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.timer span:first-of-type {
+  display: inline-block;
+  font-size: 20px;
+}
+
+.clock {
+  /* animation: 1s alternate clock; */
+}
+
+@keyframes clock {
+  0% {transform: skew(15deg, 0) scale(0.99);}
+  30% {transform: skew(15deg, -15deg)  scale(0.80);}
+  50% {transform: skew( 0 )  scale(0.99);}
+  60% {transform: skew(-0.06turn, 18deg)  scale(0.90);}
+  80% {transform: skew(0.312rad)  scale(0.90);}
+  100% {transform: skew(0)  translateX(100);}
+}
+.timer span {
+  color: gold;
+}
+.question {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.options button {
+  background-color: blueviolet ;
+  color: #fff;
+  font-size: 16px;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.options button.correct {
+  background-color: green;
+}
+
+.options button.wrong {
+  background-color: red;
+}
+
+.options button:hover {
+  background-color: slateblue;
+}
+
+.options button:disabled {
+  background-color: dimgray;
+  color: #444;
+  pointer-events: none;
+  cursor: none;
+}
+
+.options button.correct:disabled {
+  background-color: green;
+  color: #fff;
+}
+
+.options button.wrong:disabled {
+  background-color: red;
+  color: #fff;
+}
+
+.next-btn {
+  width: 120px;
+  background-color:  steelblue;
+  color: #fff;
+  display: none;
+  opacity: 0;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 12px;
+  margin: 0 auto;
+  position: relative;
+  transition: opacity 500ms ease-in;
+}
+
+.next-btn:hover {
+  background-color: slateblue;
+}
+
+.result {
+  max-width: 80%;
+  width: 100%;
+  margin: 20px auto;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #555;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.result button.retake-btn {
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}

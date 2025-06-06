@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+}
+body.dark {
+  background-color: #333;
+  color: #fff;
+}
+h1, h2,  h3, h4, h5, h6 {
+  font-family: "Noto Serif", serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+}
+.main {
+  min-height: calc(100vh - 50px);
+}
+.header {
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  padding: 100px 0;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.brand .brand-title {
+  font-weight: bold;
+}
+.search-form {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 6px 6px rgba(18, 18, 18, 0.2);
+  max-width: 500px;
+  width: 100%;
+  height: 100px;
+  margin-top: -50px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.search-form #search {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.search-form #submit-btn,
+.search-form #clear-btn {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  transition: all 100ms ease-in;
+}
+.search-form #clear-btn:active {
+  transform: scale(0.98);
+}
+.accordion-cards {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.accordion-cards .card {
+  border: 1px #aaa solid;
+  border-radius: 5px;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.accordion-cards .card.show {
+  gap: 15px;
+}
+.accordion-cards .card .title {
+  background-color: #d1d1d1;
+  display: block;
+  width: 100%;
+  border-bottom: none;
+  padding: 5px;
+  cursor: pointer;
+  z-index: 10;
+}
+.accordion-cards .card.show .title {
+  border-bottom: 1px #aaa solid;
+}
+.accordion-cards .card .content {
+  height: 0;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: height 300ms ease;
+}
+.accordion-cards .card.show .content {
+
+  height: 130px;
+  opacity: 1;
+  transition: height 0.3s ease-in-out;
+}
+.accordion-cards .card dl {
+  padding: 5px;
+}
+.accordion-cards .card dl dt {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+.warning {
+  font-size: 18px;
+  color: goldenrod;
+  text-align: center;
+}
+footer {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  font-size:smaller;
+}
