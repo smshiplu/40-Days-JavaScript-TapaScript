@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 23 - 40 Days of JavaScript - Async JavaScript - Promises</title>
+  <style>
+    body {
+      background-color: #333;
+      color: #fff;
+      font-size: 18px;
+      font-family: "Verdana", sans;
+    }
+  </style>
+  <!-- <script src="./practice.js"></script> -->
+  <script src="./task.js"></script>
+</head>
+<body>
+  <h1>Day 23 - 40 Days of JavaScript - Async JavaScript - Promises</h1>
+  <hr style="margin: 20px 0"/>
+  <div>
+    <h2>What is a Promise in JavaScript and How to Create Promises?</h2>
+    <p>
+      To create a Promise, we have to use a constructor function. This constructor function (is to create different instance of particular type) takes a function as an argument and this function is called "Executor function". This Executor function takes two parameters as arguments, one is resolve and another is reject. These resolve and reject both are functions given by JavaScript. 
+      <br /><br />
+      Inside the Executor function we have to call either resolve or reject function. But in some different scenarios and logic we can call both resolve and reject.
+      <br /><br />
+      The Executor function that handles the Asynchronous operation.  
+      <br /><br />
+      <pre>
+        new Promise((resolve, reject) => {})
+
+        //Executor function 
+        (resolve, reject) => {
+          //logic goes here
+        }
+      </pre>
+
+      <strong>State of Promise:</strong><br /><br />
+        1 - pending: The promise is in the pending state when the Executor function starts the execution.<br />
+
+        2 - fulfilled: when promise is resolved the state of the promise is fulfilled.<br />
+
+        3 - rejected: when the promise is rejected the state of the promise is rejected.<br /><br />
+
+      <strong>Result of Promise:</strong><br /><br />
+        1 - undefined: when the state of the promise is pending the result of promise is undefined.<br />
+        2 - value: when promise resolve(value) is called. <br />
+        3 - error: when promise reject(error) is called. <br />
+    </p>
+  </div>
+
+  <div>
+    <h2>Handling Promises</h2>
+    <p>There are three handler methods to handle promise</p>
+    <pre>
+      .then()
+      .catch()
+      .finally()
+    </pre>
+  </div>
+
+  <div>
+    <h2>Promises Chaining</h2>
+    <ul>
+      <li>Rule 1:
+        <p>Every promise gives a .then() handler. Every resolved promised gives only .then() handler, it doesn't gives .catch() handler. In case of every rejected promise it gives .catch() handler, it doesn't gives .then() handler method </p>
+      </li>
+      <li>RUle 2:
+        <p>There are three tasks we can accomplish within a .then() method.<br/> 
+          1. We can return another promise for a async operation. <br />
+          2. We can return any value for a synchronous . <br />
+          3. We can throw an error. <br />
+        </p>
+      </li>
+      <li>Rule 3:
+        <p>An error can be rethrown from the .catch() handler to handle the error later. In this case, the control will go to the next closest .catch() handler</p>
+      </li>
+      <li>Rule 4:
+        <p>Unlike .then() and .catch() .finally() handler doesn't process the result value or error. It just passes teh result as it is to the next handler</p>
+      </li>
+      <li>Rule 5:
+        <p>Calling a .than() multiple times on a single promise is not a chain</p>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <h2>Handle Multiple Promises</h2>
+    <p>There are four utility methods to handle promises:</p>
+    <ul>
+      <li>Promise.all():
+        <p>if any of the promise fails to resolve, Promise.all() method returns reject. that means all the promises should be fulfilled of resolved</p>
+      </li>
+      <li>Promise.any():
+        <p>if any of the promise is fulfilled or resolved among promises given in an array then it returns that promise immediately as a value but not array unlike Promise.all()</p>
+      </li>
+      <li>Promise.allSettled():
+        <p>this method waits for the all promises to be settled(resolved or rejected). whether it is fulfilled or whether it is rejected it gives the output of everything. in case of fulfilled it gives the status and value object and in case of rejection it gives the reason and says why it is rejected</p>
+      </li>
+      <li>Promise.race():
+        <p>this method returns the fastest and quickest result which has been fulfilled of resolved</p>
+      </li>
+    </ul>
+  </div>
+  
+</body>
+</html>

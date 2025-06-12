@@ -23,7 +23,7 @@ function checkPalindrome(word) {
   }
   console.log(isPalindrome);
 }
-checkPalindrome("abcdcba");
+checkPalindrome("abcdcba"); //Output: true
 console.log(`\n`);
 
 console.log(`** 4. Write a Function to Find Factorial of a Number\n`);
