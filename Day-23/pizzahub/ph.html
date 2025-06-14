@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizza hub</title>
+  <script defer src="./lib/query.js"></script>
+  <script defer src="./ph.js"></script>
+  <style>
+    body {
+      background-color: #333;
+      color: #fff;
+      font-family: sans-serif;
+    }
+    table {
+      max-width: 300px;
+      width: 100%;
+      border: 1px solid #fff;
+      border-collapse: collapse;
+    }
+    table td , th{
+      border: 1px solid #fff;
+      padding: 2px 4px;
+    }
+    .subtotal-row td {
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>PizzaHub - Order Here</h1>
+    <p id="store"></p>
+    <p id="order-details">
+      Order Details:
+      <table>
+        <thead>
+          <tr>
+            <th>Item name</th>
+            <th>Qty</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="itemName"></td>
+            <td>1</td>
+            <td id="itemPrice"></td>
+          </tr>
+          <tr>
+            <td id="addOnName"></td>
+            <td>1</td>
+            <td id="addOnPrice"></td>
+          </tr>
+          <tr class="subtotal-row">
+            <td colspan="2" style="text-align: right;">Subtotal:</td>
+            <td><span id="overallSubtotal">0</span></td>
+          </tr>
+          <tr class="discount-row">
+            <td colspan="2" style="text-align: right;">Discount:</td>
+            <td><span id="discountSubtotal">0</span></td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="2" style="text-align: right;">Total:</td>
+            <td><span id="totla">0</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </p>
+    <p id="add-on"></p>
+    <p id="order"></p>
+  </div>
+</body>
+</html>

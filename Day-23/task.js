@@ -410,7 +410,7 @@ console.log(`Ans:
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(userInfo)
-      }, 3000);
+      }, 2000);
     })
   }
 

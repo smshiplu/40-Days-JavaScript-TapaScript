@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 24: Master JavaScript async/await & Simplify Promises Like a PRO 🤩</title>
+  <style>
+    body {
+      background-color: #333;
+      color: #fff;
+      font-family: sans-serif;
+    }
+    .ques {
+      margin: 30px 0;
+    } 
+  </style>
+  <script defer src="./practice.js"></script>
+  <!-- <script defer src="./task.js"></script> -->
+</head>
+<body>
+  <h1>Day 24: Master JavaScript async/await & Simplify Promises Like a PRO 🤩</h1>
+  <div class="ques">
+    <h2>Why async/await?</h2>
+    <p>async/await comes into picture to avoid some difficulties of promise. In case of promise we need to use it with .then() .catch() and it increase the difficulties of codes While reviewing or reading. It can not be easy to understand the reasons of using .then(), .cath() or finally(). that's why the async and await is very handy while handling promise</p>
+  </div>
+  <div class="ques">
+    <h2>The async Keyword</h2>
+    <p>The async keyword is used to create a asynchronous function. While defining the function the async keyword is got set in front of of function. </p>
+    <pre>
+      //classic function
+      async function() {}
+      
+      // variable function
+      const promise = async () => {}
+
+      // anonymous function
+      async () => {}
+    </pre>
+
+    <p>The async function always returns a promise whether we return any value or explicitly returns a promise.</p>
+
+    <pre>
+      async function foo() {
+        return 101;
+      }
+      console.log(foo()); //Output: Promise {<fulfilled>: 101}
+
+      async function bar() {
+        return Promise.resolve(101);
+      }
+      console.log(bar()); //Output: Promise {<pending>}
+    </pre>
+
+    <p>Since the async function returns promises we can handle it's value using .then() or .catch() </p>
+
+    <pre>
+      async function bar() {
+        return Promise.resolve(101);
+      }
+      console.log(bar()); //Output: Promise {<pending>}
+
+      bar().then(value => {
+        console.log(value); //Output: 101
+      })
+    </pre>
+  </div>
+
+  <div class="ques">
+    <h2>The await Keyword</h2>
+    <p>The await keyword is used to handle the promise which is returned from the async function. This is the alternate of .then() method. But the whenever we use await keyword it mut be wrapped inside another async function. It cannot be use at global level. Await keyword suspends the function execution, until the promise settled (resolve or reject)</p>
+    <pre>
+      async function bar() {
+        return Promise.resolve(101);
+      }
+      async function tacklePromise() {
+        const retBar = await bar();
+        console.log(retBar)
+      }
+      
+    </pre>
+  </div>
+</body>
+</html>
