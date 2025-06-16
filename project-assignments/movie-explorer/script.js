@@ -53,8 +53,8 @@ function displayResult(data, searchTerm) {
           </div>
         </div>
       </div> 
-    `
-  })
+    `;
+  });
 }
 
 function  hideErrorMessage() {
@@ -79,5 +79,4 @@ document.getElementById("searchForm").addEventListener("submit", e => {
   if(!searchTerm) return; 
 
   movieExplorer(searchTerm);
-})
-
+});

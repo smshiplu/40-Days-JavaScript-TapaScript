@@ -86,3 +86,6 @@ document.getElementById("searchForm").addEventListener("submit", e => {
   movieExplorer(searchTerm);
 })
 ```
+
+
+![Screenshot](./screenshot.jpg)
