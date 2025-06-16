@@ -58,7 +58,7 @@ function displayResult(data, searchTerm) {
 }
 
 function  hideErrorMessage() {
-  document.getElementById("errMsg").innerText = ``;
+  document.getElementById("errMsg").innerText = "";
 }
 
 function  showErrorMessage(error) {
