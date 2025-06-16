@@ -13,12 +13,22 @@
     .ques {
       margin: 30px 0;
     } 
+    #showTaskOnPage {
+      min-height: 100vh;
+    }
   </style>
-  <script defer src="./practice.js"></script>
-  <!-- <script defer src="./task.js"></script> -->
+  <!-- <script defer src="./practice.js"></script> -->
+  <script defer src="./task.js"></script>
 </head>
 <body>
   <h1>Day 24: Master JavaScript async/await & Simplify Promises Like a PRO 🤩</h1>
+
+  <div id="showTaskOnPage">
+    <div id="showResult"></div>
+    <div id="showError"></div>
+  </div>
+
+
   <div class="ques">
     <h2>Why async/await?</h2>
     <p>async/await comes into picture to avoid some difficulties of promise. In case of promise we need to use it with .then() .catch() and it increase the difficulties of codes While reviewing or reading. It can not be easy to understand the reasons of using .then(), .cath() or finally(). that's why the async and await is very handy while handling promise</p>

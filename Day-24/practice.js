@@ -80,3 +80,5 @@ async function resolveMultiplePromiseV2() {
   
 }
  resolveMultiplePromiseV2();
+
+ 

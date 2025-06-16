@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 25 JavaScript fetch() Explained Like Never Before 🤩</title>
+  <script defer src="./practice.js"></script>
+  <script defer src="./task.js"></script>
+  <style>
+    body {
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Day 25 JavaScript fetch() Explained Like Never Before 🤩</h1>
+
+  <div class="learnings">
+    <div class="topic">
+      <h2>✅ 1. What is fetch() API and syntax?</h2>
+      <p>The fetch() is an application programming interface provided by javascript that hides the low level things and complexity and provides a high level things to to accomplish the task.</p>
+      <p>When dealing with requests and responses it the fetch() method becomes very handy unlike Promise() or AJAX. The fetch() always returns promise wether it is fulfilled or rejected.</p>
+      <pre>
+        //syntax
+        fetch(URL, options)
+          .then(response => response.json())
+          .then(data => console.log(data))
+          .catch(error => console.log(error))
+      </pre>
+    </div>
+
+    <div class="topic">
+      <h2>✅ 2. Using async/await with fetch()</h2>
+      <p>To avoid code's complexity and readability instead of using .then()/.catch() we can use async/await with the fetch</p>
+      <pre>
+        fetch(URL, options)
+          .then(response => response.json())
+          .then(data => console.log(data))
+          .catch(error => console.log(error))
+
+        //transforming above codes into async/await
+
+        async function fetchData(URL, options) {
+          try {
+            const response = await fetch(URL, options);
+            const data = await response.json();
+            console.log(data);
+          } catch (error) {
+            console.log(error);
+          }
+        }
+        fetchData("http://localhost:3000/posts")
+      </pre>
+    </div>
+
+    <div class="topic">
+      <h2>✅ 3. HTTP Methods</h2>
+      <p></p>
+    </div>
+  </div><!--.learnings-->
+</body>
+</html>

@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #fff;
+  color: #000;
+  width: 100%;
+  height: 100%;
+  font-family: sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: serif;
+}
+
+header {
+  background-color: #000;
+  color: #fff;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+section.form-section { 
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  /* padding: 20px 0; */
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+form#searchForm {
+  width: 100%;
+  margin-top: -35px;
+  padding: 20px 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px #000;
+}
+
+form#searchForm .inputs{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+/* form#searchForm #resultFor {
+  font-size: small;
+  color:#444;
+  margin-top: -5px;
+} */
+form#searchForm input#search {
+  flex: 1;
+  padding: 10px 10px 10px 0;
+  border: none;
+  outline: none;
+}
+
+form#searchForm button {
+  background-color: rgb(35, 91, 136);
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 300ms ease-in-out;
+}
+
+form#searchForm button:hover {
+  background-color: rgb(27, 74, 112);
+}
+
+form#searchForm button:active {
+  transform: scale(0.96);
+}
+
+.loading-errMsg {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.loading-errMsg #errMsg, .loading-errMsg #resultFor {
+  font-size: 22px;
+  color: red;
+} 
+
+#result-cards {
+  font-family: sans-serif;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+  
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 20px;
+  overflow: hidden;
+}
+
+#result-cards .card {
+  max-width: 300px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px #999;
+}
+
+#result-cards img {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#result-cards .title-desc {
+  padding: 20px;
+}
+
+#result-cards .title-desc .title {
+  font-size: 24px;
+}
+
+#result-cards .title-desc .desc {
+  margin-top: 20px;
+}
+
+#result-cards .title-desc .desc p {
+  margin: 5px 0 ;
+}
+ 

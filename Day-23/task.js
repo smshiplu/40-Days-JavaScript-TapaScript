@@ -67,14 +67,16 @@ console.log(`Ans:
     })
 \n`);
 {
-  const options = ["Heads", "Tails"];
-  const promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(options[Math.round(Math.random())]);
-    }, 1000);
-  });
-
-  promise
+  function simulateCoinToss() {
+    options = ["Heads", "Tails"];
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(options[Math.round(Math.random())]);
+      }, 1000);
+    });
+  }
+  
+  simulateCoinToss()
     .then(result => {
       console.log(result);
     })
@@ -105,10 +107,10 @@ console.log(`Ans:
 {
   function checkAge(age) {
     return new Promise((resolve, reject) => {
-      if(age < 18 ) {
-        throw new Error("Sorry you are not adult enough!");
+      if(!(age >= 18) ) {
+        throw new Error("Sorry you are minor!");
       }
-      resolve("You are eligible!") 
+      resolve("You are adult enough to be eligible!") 
     })
   }
   checkAge(17)
