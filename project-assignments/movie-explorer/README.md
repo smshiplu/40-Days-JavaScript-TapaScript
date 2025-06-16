@@ -1,3 +1,8 @@
+# Project Movie Explorer 
+
+- Project assignment for the Day 24: Master JavaScript async/await & Simplify Promises Like a PRO
+
+```js
 async function movieExplorer (searchTerm) {
   try {
     hideResult();
@@ -80,4 +85,4 @@ document.getElementById("searchForm").addEventListener("submit", e => {
 
   movieExplorer(searchTerm);
 })
-
+```
