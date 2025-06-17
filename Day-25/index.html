@@ -4,17 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Day 25 JavaScript fetch() Explained Like Never Before 🤩</title>
-  <script defer src="./practice.js"></script>
+  <!-- <script defer src="./practice.js"></script> -->
   <script defer src="./task.js"></script>
   <style>
     body {
       background-color: #333;
       color: #fff;
     }
+    .task {
+      min-height: 100vh;
+    }
   </style>
 </head>
 <body>
   <h1>Day 25 JavaScript fetch() Explained Like Never Before 🤩</h1>
+  <div class="task">
+    <button id="downloadBtn">Download</button>
+    <button id="abortBtn">Abort</button>
+    <div id="postTitle"></div>
+  </div>
+
 
   <div class="learnings">
     <div class="topic">
@@ -58,6 +67,87 @@
       <h2>✅ 3. HTTP Methods</h2>
       <p></p>
     </div>
+
+    <div class="topic">
+      <h2>✅ 4. fetch() - GET Resources</h2>
+      <p></p>
+    </div>
+
+    <div class="topic">
+      <h2>✅ 4. fetch() - GET Resources with query parameters</h2>
+      <p>
+        The query parameter means adding addition string in terms of search specific resources form data.
+      </p>
+      <p>To make a query parameter javascript provides a built in constructor function URLSerachParam(). Using this constructor we can add or get query strings of a url</p>
+    </div>
+
+    <div class="topic">
+      <h2>✅ 5. Create REQUESTs</h2>
+      <p>The Request() constructor to write cleaner and reusable code for fetching API.</p>
+      <pre>
+        const request1 = new Request(API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            id: crypto.randomUUID,
+            title: "The Request Constructor",
+            view: 0
+          })
+        });
+
+        async function post(request) {
+          try {
+            const response = await fetch(request);
+            const result = await response.json();
+            console.log("Result:", result);
+          } catch(error => {
+            console.error("Error", error);
+          }) 
+        }
+        post(request1);
+      </pre>
+      <p>Now it's very easy and simple task to create another fetch call with the instance to change only the specific options of the request</p>
+      <pre>
+        const request2 = new Request(request1, {
+          body: JSON.stringify({
+            id: crypto.randomUUID,
+            title: "The usefulness of reusability Request() constructor",
+            view: 100
+          })
+        })
+
+        async function anotherPost(request) {
+          try {
+            const response = await fetch(request);
+            const result = await response.json();
+            console.log("Result:", result);
+          } catch(error => {
+            console.error("Error", error);
+          });
+        }
+        anotherPost(request2)
+      </pre>
+    </div>
+
+    <div class="topic">
+      <h2>✅ 5. Handling Response &Error</h2>
+      <p>There are many ways to handle errors of an rejected response. The common one is to check if response is not ok</p>
+      <pre>
+        if(!response.ok) {
+          throw new Error("Http Error:", response.status)
+        }
+      </pre>
+      <p>There are another way to handle error by checking content and content-type from header</p>
+      <pre>
+        const contentType = response.headers.get("Content-Type");
+        if(!contentType || !contentType.includes("application/json")) {
+          throw new Error("Oops, we haven't got JSON")
+        }
+      </pre>
+    </div>
+
   </div><!--.learnings-->
 </body>
 </html>
