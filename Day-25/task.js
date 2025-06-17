@@ -241,23 +241,17 @@ console.log(`\n`);
 
 console.log(`✅ 9. Make a fetch call to a broken URL and use \`.catch()\` or \`try...catch\` to show a user-friendly error message\n`);
 {
-  async function brokenURLFetch() {
-    await fetch("https://jsonplaceholder.typicode.com/posts/")
-      .then(async (response) => {
-        if(!response.ok) {
-          throw new Error(`Broken URL Error: ${response.status}`);
-        }
-        const data = await response.json();
-        console.log("Correct URL Fetch Data:", data);
-      })
-      .catch(err => {
-        console.error(err);
-      })
-  }
-  brokenURLFetch();
+  fetch("https://jsonplaceholder.typicode.com/postssssss/")
+    .then( response => {
+      if (!response.ok) {
+        throw new Error("Broken URL Error:", response.status);
+      }
+      return response.json();
+    })
+    .then(data => console.log(`Correct URL Fetch Data`, data))
+    .catch(err => console.error(err))
 }
 console.log(`\n`);
-
 
 console.log(`✅ 10. Use \`AbortController\` to cancel a long-running fetch request (you can delay the response using a mock server or setTimeout)\n`);
 {
