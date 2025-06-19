@@ -249,7 +249,7 @@ console.log(`✅ 9. Make a fetch call to a broken URL and use \`.catch()\` or \`
       return response.json();
     })
     .then(data => console.log(`Correct URL Fetch Data`, data))
-    .catch(err => console.error(err))
+    .catch(err => console.error(err));
 }
 console.log(`\n`);
 
