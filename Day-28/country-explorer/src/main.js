@@ -52,14 +52,6 @@ function renderContent(country) {
   showMap(country?.latlng, country?.name?.official);
 }
 
-function getOffset(el) {
-  const rect = el.getBoundingClientRect();
-  return {
-    left: rect.left + window.scrollX,
-    top: rect.top + window.scrollY
-  };
-}
-
 function generateTemplate(country) {
   document.getElementById("info").innerHTML = "";
 
