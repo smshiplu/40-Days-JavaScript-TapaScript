@@ -1,3 +1,16 @@
+#  Project Country Explorer
+
+<br/>
+
+## Extended functionalities
+
+- Saving and removing country to local storage
+- Display country from saved data
+- Dark mode functionality
+
+<br/>
+
+```js
 const formElem = document.querySelector("#searchForm");
 let storageData = JSON.parse(localStorage.getItem("county-explorer-data")) || [];
 let map;
@@ -271,3 +284,5 @@ function initialDarkMode() {
   }
 }
 initialDarkMode();
+
+```
