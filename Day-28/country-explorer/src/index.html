@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Country Explorer | Day 28 - Building a Country Explorer App</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+  <link rel="stylesheet" href="./output.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+  <script defer src="./main.js"></script>
+</head>
+<body class="bg-white border-gray-200 dark:bg-gray-900 text-gray-900 dark:text-white">
+  <nav >
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="/" class="flex items-center rtl:space-x-reverse">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="60" height="60" xml:space="preserve" class="-ml-4">
+            <switch><g><path fill="#122436" d="M488.5 735.9c-4 0-8-.1-11.9-.2l.8-20c6.4.3 12.9.3 19.3.1l.6 20c-3 .1-5.9.1-8.8.1zm29.4-1.5-2-19.9c6.4-.6 12.8-1.5 19.1-2.6l3.4 19.7c-6.8 1.2-13.7 2.1-20.5 2.8zm-62-.3c-6.8-.8-13.7-1.8-20.5-3l3.6-19.7c6.3 1.2 12.7 2.1 19.1 2.8l-2.2 19.9zm102.7-6.7-4.8-19.4c6.2-1.5 12.5-3.3 18.5-5.3l6.1 19c-6.4 2.1-13.1 4-19.8 5.7zm39.4-12.7-7.5-18.6c5.9-2.4 11.9-5 17.6-7.8l8.7 18c-6.1 3-12.4 5.8-18.8 8.4zm-222-1.1c-6.4-2.6-12.7-5.5-18.8-8.5l8.9-17.9c5.7 2.8 11.6 5.5 17.6 8l-7.7 18.4zm259.2-17-10-17.3c5.6-3.2 11.1-6.6 16.4-10.2l11.2 16.6c-5.8 3.8-11.7 7.5-17.6 10.9zm-296.3-1.4c-5.9-3.5-11.8-7.2-17.5-11.1l11.3-16.5c5.3 3.6 10.8 7.1 16.3 10.4l-10.1 17.2zm330.6-21.7-12.3-15.8c5.1-3.9 10-8.1 14.8-12.4l13.4 14.9c-5.1 4.6-10.5 9.1-15.9 13.3zm-364.7-1.8c-5.4-4.3-10.7-8.8-15.7-13.5l13.5-14.7c4.7 4.3 9.6 8.6 14.6 12.6l-12.4 15.6zm395.5-25.8L685.9 632c4.5-4.6 8.8-9.4 12.9-14.3l15.3 12.8c-4.4 5.2-9 10.4-13.8 15.4zm-425.9-2.2c-4.7-5-9.3-10.2-13.7-15.5l15.5-12.7c4.1 5 8.3 9.8 12.7 14.5l-14.5 13.7zm452.5-29.6-16.2-11.7c3.8-5.2 7.4-10.6 10.8-16l17 10.6c-3.7 5.8-7.6 11.6-11.6 17.1zm-478.8-2.4c-4-5.6-7.8-11.4-11.4-17.3l17.1-10.4c3.3 5.5 6.9 10.9 10.6 16.1l-16.3 11.6zM748.7 579l-17.7-9.3c3-5.7 5.8-11.5 8.4-17.4l18.3 8.1c-2.8 6.2-5.8 12.5-9 18.6zm-522-2.6c-3.1-6.1-6.1-12.4-8.8-18.7l18.4-7.9c2.5 5.9 5.3 11.8 8.2 17.4l-17.8 9.2zm538.7-35.3-18.8-6.8c2.2-6 4.1-12.2 5.9-18.4l19.2 5.4c-1.9 6.7-4 13.4-6.3 19.8zm-555.1-2.7c-2.3-6.5-4.3-13.1-6.1-19.8l19.3-5.3c1.7 6.2 3.6 12.4 5.7 18.4l-18.9 6.7zM773.7 514l-19.4-4.9c1.6-6.2 3-12.6 4.1-18.9l19.7 3.6c-1.3 6.7-2.7 13.5-4.4 20.2zm-574.3-15.5c-1.3-6.7-2.4-13.6-3.3-20.4l19.8-2.5c.8 6.3 1.8 12.7 3.1 19l-19.6 3.9zM781 473.3l-19.9-2.2c.7-6.4 1.2-12.8 1.4-19.2l20 .8c-.2 6.8-.7 13.7-1.5 20.6zm-586.7-15.8c-.3-5.3-.4-10.6-.4-15.9v-4.8l20 .3v4.5c0 4.9.1 9.9.4 14.8l-20 1.1zm568.4-24.9c-.2-6.4-.6-12.9-1.3-19.2l19.9-2.1c.7 6.8 1.2 13.8 1.4 20.6l-20 .7zm-547.8-14.8-19.9-1.7c.6-6.8 1.5-13.8 2.5-20.5l19.8 3.1c-1.1 6.3-1.9 12.7-2.4 19.1zm543.8-23.6c-1.1-6.3-2.4-12.6-4-18.9l19.4-4.8c1.7 6.7 3.1 13.5 4.3 20.2l-19.7 3.5zm-537.8-14.5-19.5-4.5c1.1-4.6 2.3-9.2 3.5-13.7.6-2.1 1.2-4.2 1.8-6.2l19.1 5.8c-.6 1.9-1.2 3.9-1.7 5.8-1.1 4.2-2.2 8.6-3.2 12.8zm528.5-22.9c-2-6.1-4.2-12.2-6.6-18.1l18.5-7.5c2.6 6.4 5 12.9 7.1 19.4l-19 6.2zm-517.2-13.9-18.7-7.2c2.5-6.4 5.2-12.8 8.1-19l18.1 8.5c-2.6 5.7-5.2 11.7-7.5 17.7zm502.7-21.8c-2.8-5.8-5.9-11.5-9.1-17l17.3-10c3.4 5.9 6.7 12.1 9.7 18.3l-17.9 8.7zm-486.4-13.2-17.5-9.7c3.3-6 6.9-12 10.7-17.7l16.8 10.9c-3.5 5.4-6.9 10.9-10 16.5zm467.1-20.2c-3.6-5.3-7.4-10.6-11.4-15.6l15.7-12.3c4.2 5.4 8.3 11 12.2 16.7l-16.5 11.2zm-446-12.1-15.9-12.1c4.2-5.5 8.6-10.9 13.1-16l15 13.2c-4.2 4.8-8.3 9.8-12.2 14.9zm422.3-18.3c-4.3-4.8-8.8-9.4-13.4-13.9l13.9-14.4c5 4.8 9.8 9.8 14.4 14.9l-14.9 13.4zM295 246.6l-14.1-14.2c4.9-4.8 10-9.6 15.2-14l13 15.2c-4.8 4.1-9.5 8.5-14.1 13zm369.1-16c-4.9-4.1-10-8.1-15.2-11.8l11.7-16.2c5.6 4 11.1 8.3 16.4 12.7l-12.9 15.3zm-339.8-9.1-11.9-16c5.5-4.1 11.2-8.1 17-11.8l10.8 16.8c-5.5 3.5-10.8 7.2-15.9 11zm308.5-13.4c-5.4-3.4-11.1-6.6-16.8-9.6l9.3-17.7c6.1 3.2 12.1 6.6 18 10.3l-10.5 17zm-276.1-7.4-9.6-17.5c6-3.3 12.3-6.4 18.5-9.3L374 192c-5.9 2.7-11.7 5.6-17.3 8.7zm241.9-10.5c-5.9-2.6-11.9-5-17.9-7.1l6.7-18.8c6.5 2.3 13 4.9 19.2 7.6l-8 18.3zm-206.8-5.6-7.1-18.7c6.4-2.4 13-4.6 19.6-6.6l5.7 19.2c-6.1 1.7-12.2 3.8-18.2 6.1zm170.5-7.4c-6.2-1.7-12.5-3.3-18.8-4.6l4-19.6c6.7 1.4 13.5 3 20.1 4.9l-5.3 19.3zm-133.6-3.7-4.4-19.5c6.7-1.5 13.6-2.8 20.3-3.8l3 19.8c-6.3 1-12.6 2.1-18.9 3.5zm95.8-4.1c-6.4-.9-12.8-1.5-19.2-1.9l1.3-20c6.9.4 13.8 1.1 20.6 2l-2.7 19.9zm-57.7-1.6-1.6-19.9c6.8-.5 13.8-.8 20.7-.9l.2 20c-6.4 0-12.9.3-19.3.8z"/><circle transform="rotate(-74.241 488.305 441.453)" fill="#FFCD35" cx="488.3" cy="441.4" r="215"/><path fill="#FFF" d="M281.5 425.6c32.2-114.3 151-180.7 265.3-148.5 87.5 24.7 147 100.2 155.6 185.5 10.2-101.8-53.7-199.3-155.6-228-114.3-32.2-233 34.2-265.3 148.5-7.5 26.7-9.7 53.7-7.1 79.8 1.2-12.5 3.6-24.9 7.1-37.3z"/><path fill="#122436" d="m406.63 693.863 144.03-510.361 19.247 5.432-144.03 510.36z"/><path fill="#FFF" d="m272.428 410.618 5.432-19.248 414.41 116.951-5.432 19.248zM615.6 388.4c-33 0-69.7-5.7-109.9-17-75-21.2-131.5-53.8-163.4-94.5l15.7-12.4c29.3 37.3 82.2 67.6 153.1 87.6 70.6 19.9 129.3 21.6 174.4 4.8l7 18.8c-22.7 8.4-48.4 12.7-76.9 12.7zM590.7 636.2c-32-30.7-80.3-56.2-136-71.9-56.6-16-109.6-18.8-153.4-8.3l-4.7-19.4c47.1-11.3 103.7-8.4 163.5 8.5 58.8 16.6 110 43.8 144.4 76.7l-13.8 14.4z"/><path fill="#122436" d="M488.7 666.5c-20.5 0-41.2-2.8-61.4-8.6-57.8-16.3-105.8-54.2-135.2-106.6-29.3-52.4-36.5-113.2-20.2-171s54.2-105.8 106.6-135.2c52.4-29.3 113.2-36.5 171-20.2s105.8 54.2 135.2 106.6c29.3 52.4 36.5 113.2 20.2 171s-54.2 105.8-106.6 135.2c-34.1 19.1-71.7 28.8-109.6 28.8zm-.3-430c-89.4 0-171.9 59.1-197.3 149.3-14.9 52.7-8.3 108 18.4 155.8 26.7 47.8 70.5 82.3 123.2 97.1 52.7 14.9 108 8.3 155.8-18.4 47.8-26.7 82.3-70.5 97.1-123.2 30.7-108.8-32.8-222.2-141.6-252.9-18.5-5.2-37.2-7.7-55.6-7.7z"/><path fill="#122436" d="M446.2 660.9c-6.5 0-12.8-.9-19-2.6-32.4-9.1-55.7-41-65.7-89.7-9.5-46.4-5.9-103.2 10.2-160.1 16-56.9 42.7-107.2 75-141.8 34-36.3 70.5-51.2 102.9-42.1 32.4 9.1 55.7 41 65.7 89.7 9.5 46.4 5.9 103.2-10.2 160.1-16 56.9-42.7 107.2-75 141.8-27.6 29.3-56.7 44.7-83.9 44.7zM530.5 242c-21.6 0-45.7 13.2-69.2 38.4-30.2 32.3-55.2 79.7-70.4 133.5-15.2 53.8-18.7 107.3-9.8 150.6 8.4 41 26.7 67.4 51.5 74.4 4.4 1.2 8.9 1.9 13.6 1.9 21.6 0 45.7-13.2 69.2-38.4 30.2-32.3 55.2-79.7 70.4-133.5 15.2-53.8 18.7-107.3 9.8-150.6-8.4-41-26.7-67.4-51.5-74.4-4.4-1.3-9-1.9-13.6-1.9z"/><path fill="#122436" d="M599.3 624.9c-31.6-33-83-61.3-140.8-77.6-57.9-16.3-116.4-19.1-160.6-7.5l-5.1-19.3c47.6-12.4 109.9-9.7 171.1 7.6 61.2 17.3 115.8 47.5 149.8 83l-14.4 13.8zM618.5 370.1c-33.5 0-69.8-5.1-105.8-15.3-61.2-17.3-115.8-47.5-149.8-83l14.4-13.8c31.6 33 83 61.3 140.8 77.6 57.9 16.3 116.4 19.1 160.6 7.5l5.1 19.3c-19.5 5.1-41.7 7.7-65.3 7.7zM278.428 392.62l5.432-19.249 414.41 116.951-5.432 19.248z"/><path fill="#122436" d="m420.155 645.934 116.95-414.41 19.249 5.433-116.951 414.41z"/><path fill="#4EA4DB" d="M361.6 799.6h238.1V857H361.6z"/><path fill="#FFF" d="M361.6 799.6h238.1v24H361.6z"/><path fill="#122436" d="M609.7 867H351.6v-77.4h258.1V867zm-238.1-20h218.1v-37.4H371.6V847z"/><g><path fill="#4EA4DB" d="M451.89 799.648v-71.8h57.4v71.8z"/></g><g><path fill="#FFF" d="M451.968 768.87v-41h57.4v41z"/></g><g><path fill="#122436" d="M519.3 809.6h-77.4v-91.8h77.4v91.8zm-57.4-20h37.4v-51.8h-37.4v51.8z"/></g><g><circle fill="#4EA4DB" cx="281.1" cy="280.4" r="27.6"/></g><g><path fill="#FFF" d="M281.1 206c-41.1 0-74.4 33.3-74.4 74.4 0 41.1 74.4 207.8 74.4 207.8s74.4-166.7 74.4-207.8c0-41.1-33.3-74.4-74.4-74.4zm0 102c-15.3 0-27.6-12.4-27.6-27.6s12.4-27.6 27.6-27.6c15.3 0 27.6 12.4 27.6 27.6S296.4 308 281.1 308z"/><path fill="#122436" d="m281.1 512.7-9.1-20.5c-7.7-17.3-75.3-169.9-75.3-211.9 0-46.5 37.9-84.4 84.4-84.4s84.4 37.9 84.4 84.4c0 42-67.6 194.6-75.3 211.9l-9.1 20.5zm0-296.7c-35.5 0-64.4 28.9-64.4 64.4 0 27.9 40.5 127.6 64.4 182.9 23.9-55.3 64.4-155 64.4-182.9 0-35.5-28.9-64.4-64.4-64.4zm0 102c-20.7 0-37.6-16.9-37.6-37.6 0-20.7 16.9-37.6 37.6-37.6 20.7 0 37.6 16.9 37.6 37.6.1 20.8-16.8 37.6-37.6 37.6zm0-55.2c-9.7 0-17.6 7.9-17.6 17.6 0 9.7 7.9 17.6 17.6 17.6 9.7 0 17.6-7.9 17.6-17.6.1-9.7-7.9-17.6-17.6-17.6z"/></g><g><path fill="#4EA4DB" d="M488.8 749.3c-28.1 0-56.3-3.9-84-11.7l11.5-40.9c140.7 39.7 287.5-42.5 327.2-183.2C783.2 372.8 701 226 560.3 186.3l11.5-40.9c79.1 22.3 144.8 74.1 184.9 145.8 40.1 71.7 50 154.8 27.6 233.9C762 604.2 710.2 669.9 638.5 710c-46.4 26-97.8 39.3-149.7 39.3z"/></g><g><path fill="#FFF" d="m571.9 145.3-5.4 19c153 43.2 242.1 202.3 198.9 355.3S563.1 761.7 410.1 718.5l-5.4 19c27.7 7.8 56 11.7 84 11.7 51.9 0 103.3-13.3 149.8-39.3C710.2 669.8 762 604.1 784.3 525c22.3-79.1 12.5-162.1-27.6-233.9-40-71.7-105.7-123.4-184.8-145.8z"/></g><g><path fill="#122436" d="M488.8 759.3c-29.2 0-58.3-4.1-86.8-12.1l-9.6-2.7 17-60.2 9.6 2.7c65.5 18.5 134.3 10.3 193.9-23 59.5-33.3 102.5-87.8 121-153.2 38.2-135.4-40.9-276.7-176.3-314.9l-9.6-2.7 17-60.2 9.6 2.7c81.7 23.1 149.5 76.5 190.9 150.6 41.4 74 51.6 159.8 28.5 241.5-23 81.7-76.5 149.5-150.6 190.9-47.4 26.5-100.9 40.6-154.6 40.6zm-71.7-28.8c23.6 5.8 47.6 8.8 71.7 8.8v10-10c50.3 0 100.5-13.2 144.9-38.1 69.4-38.8 119.5-102.4 141.1-178.9 21.6-76.5 12.1-156.9-26.7-226.3-37.2-66.5-97.1-115.2-169.3-138.2l-6.1 21.7c140.2 45 220.8 193.9 180.5 336.7-19.9 70.6-66.3 129.3-130.5 165.3-41.7 23.4-87.7 35.3-134.1 35.3-21.8 0-43.7-2.6-65.3-7.9l-6.2 21.6z"/></g></g></switch>
+          </svg>
+          <span class="self-center sm:text-2xl xs:text-xl font-semibold whitespace-nowrap dark:text-white ">Country Explorer</span>
+      </a>
+      <ul class="flex items-start justify-start gap-4 transition-width duration-300 ease-in-out overflow-hidden">
+          <li>
+            <button onclick="openModal()" class="cursor-pointer active:scale-90 transition-all duration-300">
+              <svg id="savedFolder" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 256 256" xml:space="preserve">
+                <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                  <path d="M 83.63 82.553 H 6.37 c -3.513 0 -6.37 -2.857 -6.37 -6.37 V 65.528 c 0 -1.104 0.896 -2 2 -2 s 2 0.896 2 2 v 10.654 c 0 1.307 1.063 2.37 2.37 2.37 h 77.26 c 1.307 0 2.37 -1.063 2.37 -2.37 V 28.15 c 0 -1.307 -1.063 -2.37 -2.37 -2.37 H 49.075 c -3.144 0 -6.128 -1.194 -8.405 -3.364 l -9.139 -8.71 c -1.529 -1.457 -3.534 -2.259 -5.646 -2.259 H 6.37 c -1.307 0 -2.37 1.063 -2.37 2.37 v 38.309 c 0 1.104 -0.896 2 -2 2 s -2 -0.896 -2 -2 V 13.817 c 0 -3.512 2.857 -6.37 6.37 -6.37 h 19.515 c 3.145 0 6.13 1.195 8.406 3.364 l 9.139 8.71 c 1.529 1.457 3.534 2.259 5.646 2.259 H 83.63 c 3.513 0 6.37 2.857 6.37 6.37 v 48.032 C 90 79.695 87.143 82.553 83.63 82.553 z" style="stroke: currentColor; stroke-width: 2; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: currentColor; fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+                  <path d="M 15.366 23.042 c -0.183 0 -0.366 -0.07 -0.505 -0.209 l -4.543 -4.543 c -1.28 -1.28 -1.28 -3.363 0 -4.644 c 1.281 -1.28 3.364 -1.28 4.644 0 l 0.404 0.404 l 0.404 -0.404 c 1.281 -1.28 3.364 -1.28 4.644 0 l 0 0 c 1.28 1.28 1.28 3.363 0 4.644 l -4.543 4.543 C 15.731 22.972 15.548 23.042 15.366 23.042 z M 12.64 14.114 c -0.475 0 -0.95 0.181 -1.312 0.543 c -0.723 0.723 -0.723 1.901 0 2.624 l 4.038 4.038 l 4.038 -4.038 c 0.723 -0.723 0.723 -1.901 0 -2.624 c -0.724 -0.723 -1.9 -0.723 -2.624 0 l -0.909 0.909 c -0.279 0.278 -0.731 0.279 -1.01 0 l -0.908 -0.908 C 13.591 14.295 13.115 14.114 12.64 14.114 z" style="stroke: currentColor; stroke-width: 2; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: currentColor; fill-rule: nonzero; opacity: 1;" transform=" matrix(2.8008 0 0 2.8008 1.9639999999999986 1.9639999999999702) " stroke-linecap="round"/>
+                </g>
+              </svg>
+            </button>
+          </li>
+          <li>
+            <button onclick="darkModeToggle()" class="cursor-pointer active:scale-90 transition-all duration-300">
+              <svg id="moon" class="inline-block w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 0 1-.5-17.986V3c-.354.966-.5 1.911-.5 3a9 9 0 0 0 9 9c.239 0 .254.018.488 0A9.004 9.004 0 0 1 12 21Z"/>
+              </svg>
+              <svg id="sun" class="hidden w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M13 3a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0V3ZM6.343 4.929A1 1 0 0 0 4.93 6.343l1.414 1.414a1 1 0 0 0 1.414-1.414L6.343 4.929Zm12.728 1.414a1 1 0 0 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 1.414 1.414l1.414-1.414ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm-9 4a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2H3Zm16 0a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2ZM7.757 17.657a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 1 0 1.414 1.414l1.414-1.414Zm9.9-1.414a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414l-1.414-1.414ZM13 19a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0v-2Z" clip-rule="evenodd"/>
+            </svg>
+
+            </button>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="md:text-5xl lg:text-6xl">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
+      <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Find Country Information</h1>
+      <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">Type a country name and find its detailed information by simply entering a country name and clicking the search button.</p>
+
+      <form id="searchForm" class="flex flex-col gap-4 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 max-w-2xl mx-auto">
+        <input type="search" name="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search country..." required />
+        
+        <button type="submit" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+            Search
+            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <div class="relative py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+      <div id="loading" class="hidden absolute -translate-x-1/2 -translate-y-1/2 top-2/4 left-1/2">
+          <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/><path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+          </svg>
+          <span class="sr-only">Loading...</span>
+      </div>
+
+      <div id="toastMessage" class="hidden items-center w-full max-w-xs mx-auto p-4 mb-4 text-gray-500 bg-white rounded-lg shadow-sm dark:text-gray-400 dark:bg-gray-800" role="alert">
+        <div class="inline-flex items-center justify-center shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z"/>
+          </svg>
+          <span class="sr-only">Error icon</span>
+        </div>
+        <div class="message ms-3 text-sm font-normal"></div>
+      </div>
+        
+      <div id="content" class="hidden text-gray-900  dark:text-white bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 ">
+        <div id="actionBtn" class="h-16 relative">
+
+          <button id="saveBtn" class="absolute top-0 right-2 p-2 cursor-pointer hidden items-center justify-center flex-col">
+            <snap class="text-xs text-gray-600">Save</snap>
+            <svg class="w-6 h-6 text-gray-800 dark:text-white active:scale-95 transitio-all duration-150 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"/>
+            </svg>
+          </button>
+          <button id="removeBtn" class="absolute top-0 right-0  p-2 cursor-pointer hidden items-center justify-center flex-col">
+            <snap class="text-xs text-gray-600">Remove</snap>
+            <svg class="w-6 h-6 text-gray-800 dark:text-white active:scale-95 transitio-all duration-150" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="m12.75 20.66 6.184-7.098c2.677-2.884 2.559-6.506.754-8.705-.898-1.095-2.206-1.816-3.72-1.855-1.293-.034-2.652.43-3.963 1.442-1.315-1.012-2.678-1.476-3.973-1.442-1.515.04-2.825.76-3.724 1.855-1.806 2.201-1.915 5.823.772 8.706l6.183 7.097c.19.216.46.34.743.34a.985.985 0 0 0 .743-.34Z"/>
+            </svg>
+          </button>
+        </div>
+        <div id="info"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white dark:bg-gray-900 text-gray-900  dark:text-white relative z-10">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl">
+      <div id="map" class="hidden min-h-[180px] h-96 "></div>
+    </div>
+  </section>
+
+  <!-- Main modal -->
+  <div id="modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden bg-slate-900/90 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-0rem)] max-h-full">
+      <div class="relative p-4 w-full max-w-2xl m-auto top-1/2 -translate-y-1/2 max-h-full z-40">
+          <!-- Modal content -->
+          <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+              <!-- Modal header -->
+              <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    Saved Country
+                  </h3>
+                  <button onclick="closeModal()" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white cursor-pointer" data-modal-hide="static-modal">
+                      <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                      </svg>
+                      <span class="sr-only">Close modal</span>
+                  </button>
+              </div>
+              <!-- Modal body -->
+              <div class="p-4 md:p-5 space-y-4">
+                <ul id="countryList"></ul>
+              </div>
+              <!-- Modal footer -->
+              <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                <button onclick="closeModal()" data-modal-hide="static-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 cursor-pointer">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>

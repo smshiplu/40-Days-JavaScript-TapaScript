@@ -1,0 +1,4 @@
+/* tailwindcss has been installed using Tailwindcss CLI
+ Run Command: npx @tailwindcss/cli -i ./src/index.css -o ./src/output.css --watch*/
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
