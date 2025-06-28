@@ -39,6 +39,7 @@ async function fetchCountry(name) {
   }
 
 }
+fetchCountry("usa");
 
 function renderContent(country) {
   document.getElementById("content").classList.replace("hidden", "block");
