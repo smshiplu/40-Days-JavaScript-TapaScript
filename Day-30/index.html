@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 30 - 40 Days of JavaScript - Classes and OOP</title>
+  <!-- <script defer src="./practice.js"></script>
+  <script defer src="./OOP-principles/abstraction.js"></script>
+  <script defer src="./OOP-principles/encapsulation.js"></script>
+  <script defer src="./OOP-principles/inheritance.js"></script>
+  <script defer src="./OOP-principles/polymorphism.js"></script>
+  <script defer src="./OOP-principles/composition.js"></script> -->
+  <script defer src="./task.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #333;
+      color: #fff;
+    }
+    pre {
+      word-wrap: break-word;
+      overflow-x: auto;
+    }
+    .topic {
+      border: 1px solid #555;
+      margin: 30px 0;
+      padding: 10px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Day 30 - 40 Days of JavaScript - Classes and OOP</h1>
+  <div class="topic">
+    <h2>✅ “this” in Classes </h2>
+    <p>The keyword "this" refers to the object not the class itself. This is the reason we can create different properties for different instances.</p>
+    <pre>
+      class Car {
+        constructor(name) {
+          this.name = name
+        }
+        printThis() {
+          console.log(this);
+        }
+      }
+
+      const car = new Car("BMW");
+      console.log(car); // Car {name: 'BMW'}
+      car.printThis() // Car {name: 'BMW'}
+    </pre>
+  </div>
+
+  <div class="topic">
+    <h2>✅ Class as Expression </h2>
+    <p><b>Classic Expression:</b></p>
+    <pre>
+      class AClass {
+        constructor() {}
+      }
+      const a = new AClass();
+    </pre>
+
+    <br>
+    
+    <p><b>Variable Class:</b></p>
+    <pre>
+      const Employee = class {
+        constructor() {}
+      }
+      const emp = new Employee();
+    </pre>
+
+    <br>
+
+    <p><b>Named Class:</b></p>
+    <pre>
+      const Dept = class Department {
+        constructor() {}
+      }
+      const dept = new Dept();
+    </pre>
+  </div>
+
+  <div class="topic">
+    <h2>✅ Upfront Property/Class Field</h2>
+    <p>There could be a situation where I don't need to use constructor() method, that time the property can be declare upfront of the class</p>
+    <pre>
+      class Phone {
+        brand = "apple";
+
+        viewBrand() {
+          console.log(this.brand);
+        }
+      }
+      const car = new Car("BMW");
+      console.log(car); // Car {name: 'BMW'}
+      car.printThis() // Car {name: 'BMW'}
+    </pre>
+  </div>
+
+  <div class="topic">
+    <h2>✅ Getter and Setter</h2>
+    <p>Getter and Setter are the special methods that is used to modify or validate the property of a method</p>
+    <pre>
+      class Animal {
+        constructor(name) {
+          this.name = name;
+        }
+
+        printName() {
+          console.log(`The original property of the object is: ${this.name}`); //The original property of the object is: Get the animal name Tiger
+        }
+
+        get name () {
+          if(!this._name) {
+            console.warn(`No valid animal name found!`);
+            return;
+          }
+          return `Get the animal name ${this._name}`;
+        }
+
+        set name (value) {
+          if(!value || value.length < 2) {
+            console.warn(`The name property cannot be empty or less than 2 characters!`);
+            return;
+          }
+          if(value === "Cat") 
+          this._name = "Tiger";
+        }
+      }
+
+      const animal = new Animal("Cat");
+      animal.printName();
+      console.log(animal.name); // Get the animal name Tiger
+    </pre>
+  </div>
+
+  <div class="topic">
+    <h2>✅ Static Method</h2>
+    <p>In the class static method can be created using the keyword "static" before a method name. A static method can be define with the arguments and this method can be accessed on the class name itself and any parameter can be provided and this parameter is not depended on class properties. The this inside a static method refers to class itself. </p>
+    <pre>
+      class MyClass {
+        static staticMethod() {
+          console.log(this); // this returns the hole class itself
+        }
+      }
+      MyClass.staticMethod();
+
+      class User {
+        constructor(name, email) {
+          this.name = name;
+          this.email = email
+        }
+
+        greet() {
+          console.log(`Hi I am ${this.name}`);
+        }
+
+        static isValidEmail(email) {
+          return email.includes("@") && email.includes(".");
+        }
+
+        static createGuest() {
+          return new User("Guest", "guest@emal.com")
+        }
+
+      }
+
+      const user = new User("Shiplu", "shiplu@email.com");
+      user.greet(); // Hi I am Shiplu
+
+      const isValidEmail = User.isValidEmail("test@test.com");
+      console.log(isValidEmail); // true
+      
+      const guestUser = User.createGuest(); 
+      console.log(guestUser); // User {name: 'Guest', email: 'guest@emal.com'}
+      guestUser.greet(); // Hi I am Guest
+    </pre>
+  </div>
+
+   <div class="topic">
+    <h2>✅ Private/Public</h2>
+    <p>Public: The fields and methods are accessible from the outside of the class that is called Public fields or methods</p>
+    <p>Private: The fields and methods are only accessible in the class is called Private fields or methods.</p>
+    <pre>
+    </pre>
+  </div>
+</body>
+</html>
