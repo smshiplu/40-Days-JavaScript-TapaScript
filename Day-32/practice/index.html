@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 32 - 40 Days of JavaScript - Modules</title>
+  <style>
+    body {
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
+  <script type="module" src="./practice.js"></script>
+</head>
+<body>
+  <h1>Day 32 - 40 Days of JavaScript - Modules</h1>
+  <p>The js modules is the concept of a way to code where code base can be divided into smaller chunk rather than a gigantic code base file.There are several types of module export. There are:</p>
+  <pre>
+    <ul>
+      <li>Named export/import:
+        export { add, sub };
+        import { add, sub } from "./calculate.js";
+      </li>
+      <li>Named export/import with alias:
+        export { add, sub };
+        import { add as plus, sub as minus } from "./calculate.js";
+      </li>
+      <li>Default export/import: (type 1)
+        export default sayHello;
+        import {default as anyName} from "./sayHello.js";
+      </li>
+      <li>Default export/import: (type 2)
+        export default sayHello;
+        import anyName from "./sayHello.js";
+      </li>
+      <li>Namespace export/import: 
+        export {add, sub};
+        import * as calc from "./calculate.js";
+      </li>
+      <li>Combined export/import:
+        All the modules export from a single files is called Combined module export. Here a separate single file combined.js is created and export modules of calculate.js and sayHello.js form combined.js. 
+
+        in combined.js
+        export * as calc from "./calculate.js";
+        export {default as hello} from "./sayHello.js";
+
+        in index.js 
+        import * as combine from "./combined.js";
+      </li>
+      <li>Dynamic import:
+        The dynamic import is the way of import multiple modules using Promise APIs.
+        // Dynamic import
+        const { add , sub } = await import( "./calculate.js");
+
+
+        // Dynamic import of multiple modules
+        const promise = Promise.all(
+          [
+            await import("./calculate.js"),
+            await import("./greetings.js")
+          ]
+        );
+
+        promise.then(result => {
+          const calc = result[0];
+          const greet = result[1];
+
+          console.log(calc.add(5, 5));
+          console.log(calc.sub(10, 5));
+          
+          greet.sayHi();
+          greet.sayHola();
+        });
+      </li>
+    </ul>
+  </pre>
+</body>
+</html>
