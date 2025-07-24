@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 33 - 40 Days of JavaScript - Map, Set, WekaMap, WeakSet</title>
+  <style>
+    body {
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
+  <!-- <script defer src="./practice.js"></script> -->
+  <script defer src="./task.js"></script>
+</head>
+<body>
+  <h1>Day 33 - 40 Days of JavaScript - Map, Set, WekaMap, WeakSet</h1>
+  <div class="topic">
+    <h2>✅ What is Map?</h2>
+    <p>The Map object is a data structure which holds key value pair and it remember it's insertion order. Any value both object and primitive value can be it's key or value. </p>
+    <pre>
+      // creating a map with default value initialization
+
+      const map = new Map([
+        ["name", "Shiplu"],
+        ["email", "shiplu@email.com"]
+      ]);
+
+
+      // creating map and adding values to map using set() method
+
+      const map = new Map();
+      map.set("name", "shiplu");
+      map.set("email", "shiplu@email.com");
+      console.log(map);
+
+
+      // getting value from map using get() method
+      
+      console.log("Email is:", map.get("email"));
+      
+
+      // map keys
+      const funMap = new Map();
+      funMap.set(101, "My house number");
+      funMap.set(true, "I need a job");
+
+      const obj = {name: "azlan"};
+      funMap.set(obj, true);
+
+      console.log(funMap);
+
+
+      // map properties and methods
+
+      //size
+      console.log(funMap.size); // 3
+      
+      //has
+      console.log(funMap.has(101)); // true
+      console.log(funMap.has("101")); // false
+      
+      //delete
+      funMap.delete(101);
+      console.log(funMap);
+
+      //clear
+      funMap.clear();
+      console.log(funMap);
+
+    </pre>
+  </div>
+</body>
+</html> 
