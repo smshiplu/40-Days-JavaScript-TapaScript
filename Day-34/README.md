@@ -73,7 +73,7 @@ In the file `Member.js` the returnBook method.
 
 <br/><br/>
 
-## 2. Code Clean up
+## ✅ 2. Code Clean up
 
 Do the code cleanup bu utilizing the utilities. The hint is given in the session.
 
