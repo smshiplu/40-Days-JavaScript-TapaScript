@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Management System(OOP)</title>
+    <link href="/src/index.css" rel="stylesheet" />
+    <script defer type="module" src="/src/main.js"></script>
+  </head>
+  <body class="bg-slate-900 text-gray-300">
+    <header class="my-4">
+      <h1 class="text-3xl text-center font-bold">📚 Library Management System</h1>
+    </header>
+    <main class="max-w-2xl w-full m-auto border border-stone-700 p-4 rounded-lg">
+      <section class="flex flex-col gap-2 mb-10">
+        <label for="userSwitcher">Switch User View</label>
+        <select id="userSwitcher" class="border rounded p-2 cursor-pointer bg-gray-700/50">
+          <option value="admin">Admin</option>
+          <option value="member" selected>Member</option>
+        </select>
+      </section>
+
+      <!-- Add Book Form -->
+       <section id="bookEntrySection" class="bg-slate-800/50 border border-stone-700 p-4 my-14 rounded-lg shadow-2xl">
+        <div class="mb-6">
+          <h2 class="text-xl font-semibold">Add Book</h2>
+        </div>
+        
+        <form id="addBookForm" name="addBookForm" class="flex flex-col gap-8">
+          <div class="field-group flex flex-col gap-2">
+            <label for="title" class="font-semibold">Title*</label>
+            <input type="text" id="title" name="title" class="border border-stone-400 p-2 rounded bg-gray-700/50">
+            <span class="error text-xs text-rose-900 italic"></span>
+          </div>
+
+          <div class="field-group flex flex-col gap-2">
+            <label for="author" class="font-semibold">Author*</label>
+            <input type="text" id="author" name="author" class="border border-stone-400  p-2 rounded bg-gray-700/50">
+            <span class="error text-xs text-rose-900 italic"></span>
+          </div>
+
+          <div class="field-group flex flex-col gap-2">
+            <label for="genre" class="font-semibold">Genre*</label>
+            <input type="text" id="genre" name="genre" class="border border-stone-400 p-2 rounded bg-gray-700/50">
+            <span class="error text-xs text-rose-900 italic"></span>
+          </div>
+          <button type="submit" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-3 text-center me-0 mb-2 cursor-pointer">Add</button>
+        </form>
+       </section>
+
+      <!-- Available Books -->
+       <section id="availableBookSection" class="bg-slate-800/50 border border-stone-700 p-4 mt-14 rounded-lg shadow-2xl">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-xl font-semibold">Available Book(s)</h2>
+          <input type="search" id="searchBook" class="border border-stone-400 p-1 rounded bg-gray-700/50 placeholder:text-sm" placeholder="Search Books..">
+        </div>
+        <ul id="bookList" class="flex flex-col"></ul>
+       </section>
+
+      <!-- Borrowed Books -->
+       <section id="borrowedBookSection" class="bg-slate-800/50 border border-stone-700 p-4 mt-14 rounded-lg shadow-2xl">
+        <div class="mb-6">
+          <h2 class="text-xl font-semibold">Borrowed Book(s)</h2>
+        </div>
+        
+        <ul id="borrowedBookList" class="flex flex-col"></ul>
+       </section>
+
+    </main>
+    <footer class="my-6">
+      <p class="text-stone-700 text-center text-xs">&copy;Copyright 2025. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
