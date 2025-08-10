@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scope Problem</title>
+  <script defer src="./3-scope-problem.js"></script>
+</head>
+<body>
+  <h1>Scope Problem</h1>
+  <button id="countBtn">Click Count</button>
+  <p>If you having an method inside an object and having a `this` enclosed inside that function, then 
+    <br/>
+    1. if the that is the regular function that time, the `this` keyword refers to the object itself.
+    2. If the function is an arrow function that time the `this` keyword refers to the window object. Because arrow function doesn't have its own this.
+  </p>
+</body>
+</html>
