@@ -447,6 +447,19 @@ renderList(fullData)
 
 <br/><br/>
 
+
+## ✅ 7. Performance Race: Debounce vs Throttle vs Memoization
+
+Build a demo that lets users toggle between debounce, throttle, and memoized search strategies in a large dataset (e.g., products, cities).
+
+✅ Compare:
+
+- Number of function calls
+- Time taken
+- Smoothness of UI
+
+✅ Display performance metrics live
+
 ### ✔ Solutions
 
 #### 📝 HTML
