@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance Race: Debounce vs Throttle vs Memoization</title>
+  <style>
+    body {
+      background-color: #333;
+      color: #fff;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      
+    }
+    hr {
+      margin: 40px 0;
+    }
+    .cards {
+      max-width: 1200px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 50px 0;
+    }
+    
+  </style>
+  <script defer src="./script.js"></script>
+</head>
+<body>
+  <h1>Performance Race: Debounce vs Throttle vs Memoization</h1>
+
+  <p>Build a demo that lets users toggle between debounce, throttle, and memoized search strategies in a large dataset (e.g., products, cities).</p>
+
+  <ul>
+    <li>
+      ✅ Compare:
+
+      <ul>
+        <li>Number of function calls</li>
+        <li>Time taken</li>
+        <li>Smoothness of UI</li>
+      </ul>
+    </li>
+    <li>✅ Display performance metrics live</li>
+  </ul>
+  <hr />
+
+  <select id="strategyChange" onchange="handleStrategyChange(this)">
+    <option value="debounce">Debounce</option>
+    <option value="throttle">Throttle</option>
+    <option value="memoize">Memoize</option>
+  </select>
+
+  <input type="search" id="search" placeholder="Search Products..">
+
+  <div id="performanceMetrics"></div>
+  
+  <ul id="displayProducts"></ul>
+
+</body>
+</html>

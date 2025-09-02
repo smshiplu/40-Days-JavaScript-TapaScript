@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cleanup Forgotten Event Listeners</title>
+  <style>
+    .modal-overlay {
+      background-color: rgba(0,0,0, 0.5);
+      position: fixed;
+      inset: 0;
+      display: flex;
+      opacity: 1;
+      visibility: visible;
+      align-items: center;
+      justify-items: center;
+      transition: opacity 0.5ms ease-in-out;
+    }
+
+    .modal-overlay.hidden{
+      width: 0;
+      height: 0;
+      opacity: 0;
+      visibility: hidden;
+      inset: unset;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      max-width: 500px;
+      min-height: 300px;
+      width: 100%;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+  <script defer src="./script.js"></script>
+</head>
+<body>
+  <h1>Cleanup Forgotten Event Listeners</h1>
+  <button id="openModal" onclick="openModal()">Open Modal</button>
+
+  <div class="modal-overlay hidden" id="modalOverlay">
+    <div class="modal-content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim officia rem laboriosam nemo autem voluptatibus quam explicabo. Excepturi sed rerum ipsum delectus unde adipisci cumque sapiente, provident possimus eos qui!</p>
+      <button id="modalClose" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+</body>
+</html>

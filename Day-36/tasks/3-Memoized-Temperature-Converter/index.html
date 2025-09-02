@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memoized Temperature Converter</title>
+  <style>
+    body {
+      background-color: #333;
+      color: #fff;
+    }
+    input {
+      width: 100px;
+      padding: 10px;
+    }
+    button {
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
+  <script defer src="./script.js"></script>
+</head>
+<body>
+  <h1>Memoized VS Non-Memoized Temperature Converter</h1>
+  <div>
+    <input type="number" id="celsiusValue" min="1" max="50" placeholder="Enter Celsius Temperature">
+    <button id="convertCToF">Convert</button> = 
+    <span id="showResult"> <strong>0°F</strong></span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile and Optimize List Rendering</title>
+  <style>
+    body {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      background-color: #333;
+      color: #fff;
+    }
+    hr {
+      margin: 20px 0;
+    }
+  </style>
+  <script defer src="./script.js"></script>
+</head>
+<body>
+  <h1>Profile and Optimize List Rendering</h1>
+  <p>Render a list of 1,000 items with buttons to sort, filter, and shuffle.
+Measure and optimize for performance.</p>
+
+  <ul>
+    <li>✅ Use performance.now() or console.time()</li>
+    <li>✅ Use batching or virtual DOM-like diffing</li>
+    <li>✅ Bonus: Only update DOM for changed rows</li>
+  </ul>
+  <hr>
+
+  <div>
+    <button id="sortBtn" onclick="sortList(this)">Sort (Higher to Lower)</button>
+    <button id="filterBtn" onclick="filterList(this)">Filter (Even)</button>
+    <button id="shuffleBtn" onclick="shuffleList()">Shuffle</button>
+    <button id="resetBtn" onclick="resetList()">Reset</button>
+  </div>
+  <p id="time"></p>
+  <ul id="listContainer"></ul>
+
+</body>
+</html>

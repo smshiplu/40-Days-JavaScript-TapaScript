@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memoization</title>
+  <style>
+    body {
+      background-color: #333;
+      color:#fff;
+    }
+    input {
+      min-width: 100px; 
+      padding: 10px;
+    }
+    button {
+      padding: 10px;
+      cursor: pointer;
+    }
+    .output {
+      background-color: #666;
+      padding: 20px;
+      margin: 20px 0;
+    }
+  </style>
+  <script defer src="./fibonacci.js"></script>
+</head>
+<body>
+  <h1>Memoization vs Non-Memoization</h1>
+
+  <div class="inputs">
+    <input type="number" id="num" placeholder="Enter N" min="1" max="50">
+    <button onclick="runNormal()" id="normal-calculate">Normal Calculation</button>
+    <button onclick="runMemo()" id="memo-calculate">Memo Calculation</button>
+  </div>
+  <div id="output" class="output"></div>
+</body>
+</html>
