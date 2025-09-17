@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session Storage</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #333;
+      color: #fff;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .form-group {
+      display: flex;
+      align-items: start;
+      gap: 10px;
+    }
+  </style>
+  <script defer src="./script.js"></script>
+</head>
+<body>
+  <h1>Session Storage</h1>
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea id="message" rows="6" cols="40"></textarea>
+  </div>
+  <p id="draftStatus"></p>
+</body>
+</html>

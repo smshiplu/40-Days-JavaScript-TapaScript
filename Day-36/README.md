@@ -460,6 +460,8 @@ Build a demo that lets users toggle between debounce, throttle, and memoized sea
 
 ✅ Display performance metrics live
 
+<br/>
+
 ### ✔ Solutions
 
 #### 📝 HTML
