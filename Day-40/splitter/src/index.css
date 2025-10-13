@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+.glass-effect {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.dark .glass-effect {
+  background: #1e2939;
+}
+
+
+@keyframes myCustomAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%), 
+  }
+  50% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@theme {
+  --animate-slide-in-out: myCustomAnimation 0.7s ease-in-out;
+}

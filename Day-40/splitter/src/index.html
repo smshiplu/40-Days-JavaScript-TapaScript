@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" id="html" class="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Splitter, smart budget splitter.</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="author" href="https://www.linkedin.com/in/sm-nasir-uddin" />
+  <link rel="canonical" href="https://anagram-finder-js.vercel.app" />
+  <link id="favicon" rel="icon" href="" type="image/svg+xml">
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"> -->
+
+  <!-- <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script> -->
+  <script defer src="./assets/bundle.js"></script>
+</head>
+<body class="bg-linear-135 to-[#bde83d] from-[#e66465] text-gray-900 dark:-bg-linear-135 dark:to-gray-900 dark:from-slate-900 dark:text-white">
+  <!-- header -->
+  <header class="max-w-screen-xl w-full mx-auto p-6 flex flex-col md:flex-row justify-between items-center gap-8">
+      <div>
+        <h1 class="text-5xl tracking-tighter font-bold text-gray-800 dark:text-white">
+          <svg width="64" height="64" class="w-16 inline-block" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 119.49"><path stroke="currentColor" fill="currentColor"  d="M61.88,42a8,8,0,1,1-7.26,8.65A8,8,0,0,1,61.88,42ZM1,5.44H11.51a1,1,0,0,1,1,1V31.9a1,1,0,0,1-1,1H1a1,1,0,0,1-1-1V6.47a1,1,0,0,1,1-1ZM15.17,10a2,2,0,0,1,.33-1.24c.67-.91,2.31-.64,3.35-.64a15.15,15.15,0,0,0,3.22-.25,37.57,37.57,0,0,0,4.6-1.53c5.69-2,10.54-3.3,16.47-5.9A4.57,4.57,0,0,1,47,.42,100.69,100.69,0,0,1,63.06,7.94a5.69,5.69,0,0,1,2.39,2.37c3.29,4.78,6.1,9.62,8.81,14.47.91,1.7,1.28,3.32.66,4.33-2.54,4.17-7.11-1.76-12-5.71-2.07-1.66-4.89-3.14-7.31-4.82-3.1-1.3-4.57-2.54-7.9-3.24-5.12-.44-5.54,6.91,1.19,7.18,4.57.18,14,4.32,16.62,8.13,2.47,3.56,1.11,7.06-3.91,6.93l-4.2-.78c-6.68-1.26-6.5-1.51-13.46-.22-3.73.7-7.65,1.42-11.51.7-2.34-.44-3.57-1.37-5.67-3A19,19,0,0,0,23.4,32a12.35,12.35,0,0,0-3.06-1.3c-1.6-.38-3.85.16-4.79-1.22a2.59,2.59,0,0,1-.38-1.37V10ZM122.88,83.14H107.3v30.14h15.58V83.14Zm-19,27.61V85.56H92.56c-4.8.86-9.6,3.46-14.41,6.49h-8.8c-4,.24-6.07,4.27-2.19,6.93,3.08,2.26,7.15,2.13,11.33,1.76,2.88-.15,3,3.72,0,3.74-1,.08-2.18-.17-3.17-.17-5.21,0-9.49-1-12.12-5.11l-1.32-3.08L48.79,89.63c-6.55-2.15-11.2,4.7-6.38,9.46a171.58,171.58,0,0,0,29.15,17.16c7.23,4.39,14.45,4.24,21.67,0l10.66-5.5ZM79.13,27,105,66.8,75.32,85.58l-2.54-3.91L94,68.26l.28-.17A4.4,4.4,0,0,0,95.56,62l-1.22-1.88.06,0-5.89-8.94-11.71-18a9.88,9.88,0,0,0,1.5-1.94h0A6.38,6.38,0,0,0,79.13,27Zm-5.41,7.7,19.51,30L63.56,83.5l-27.26-42c.76,0,1.51-.06,2.26-.13,1.29-.12,2.54-.3,3.75-.51L62.15,71a5.2,5.2,0,0,1,7.16,1.61L81,65.15A5.18,5.18,0,0,1,82.64,58L69.45,38c.06-.08.11-.17.16-.25a3.62,3.62,0,0,0,.2-.33,7.21,7.21,0,0,0,.82-3.18,6.59,6.59,0,0,0,3.09.46Z"/></svg>
+          Splitter
+        <small class="text-xl tracking-tight my-2 block font-light">Splitter for Expense Sharing</small>
+        </h1>
+      </div>
+
+      <nav class="flex">
+        <!-- Export Button -->
+        <button type="button" id="exportBtn" class="text-white bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 shadow-lg shadow-yellow-500/50 dark:shadow-lg dark:shadow-yellow-800/80 font-medium rounded-lg text-sm px-2 sm:px-5 py-2.5 text-center me-2 mb-2 cursor-pointer flex gap-1 items-center">
+          <span>Export</span> 
+          <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2"/>
+          </svg>
+        </button>
+        
+        <!-- File Import Form -->
+        <form id="fileImportForm">
+          <input type="file" id="fileInput" hidden class="hidden">
+          <button type="submit" id="importBtn" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-2 sm:px-5 py-2.5 text-center me-2 mb-2 cursor-pointer flex gap-1 items-center">
+            <span>Import</span> 
+            <svg class="w-6 h-6 rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2"/>
+            </svg>
+          </button>
+        </form>
+        
+        <!-- Theme Switcher Button -->
+        <button type="button" id="themeSwitcherBtn" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-2 sm:px-5 py-2.5 text-center me-2 mb-2 cursor-pointer flex gap-1 items-center">
+          <span>Theme</span>
+          <svg class="w-6 h-6" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 3l0 18"></path><path d="M12 9l4.65 -4.65"></path><path d="M12 14.3l7.37 -7.37"></path><path d="M12 19.6l8.85 -8.85"></path>
+          </svg>
+        </button>
+      </nav>
+  </header>
+
+  <!-- main -->
+  <main class="max-w-screen-xl w-full min-h-screen mx-auto p-6">
+    <section class="flex flex-col md:flex-row w-full justify-between gap-8 mb-10 dark:text-white text-gray-900">
+      <!-- addUserForm -->
+      <form id="addUserForm" class="flex-1 flex flex-col p-6 glass-effect border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 backdrop-blur-3xl">
+        <h2 class="text-lg font-semibold mb-4">Add Users</h2>
+        <input type="text" id="addUserInput" placeholder="Enter a user name"  class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4">
+        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer">Add User</button>
+      </form>
+
+      <!-- addExpenseForm -->
+      <form id="addExpenseForm" class="flex-1 flex flex-col p-6 glass-effect border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 backdrop-blur-3xl">
+        <h2 class="text-lg font-semibold mb-2">Add Expenses</h2>
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+          <div class="flex-1">
+            <label for="expensePaidByInput" class="font-semibold text-xs">Who Paid?</label>
+            <select id="expensePaidByInput" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></select>
+          </div>
+          <div class="flex-1">
+            <label for="expenseAmountInput" class="font-semibold text-xs">Amount($)</label>
+            <input type="number" id="expenseAmountInput" min="0" step="0.1" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="e.g. 100">
+          </div>
+          <div class="flex-1">
+            <label for="expenseDescriptionInput" class="font-semibold text-xs">Description</label>
+            <input type="text" id="expenseDescriptionInput" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="e.g. Ice cream">
+          </div>
+        </div>
+        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer">Add Expense</button>
+      </form>
+    </section>
+
+    <!-- Expense Overview -->
+    <section id="expenseListAndSettle" class="p-6 glass-effect border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 backdrop-blur-3xl">
+      <h2 class="text-lg font-semibold mb-4">Expense Overview</h2>
+
+      <!-- All Expenses -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="md:max-w-sm w-full">
+          <h3 class="font-semibold mb-2">All Expenses</h3>
+          <ul id="expenseList" class="border p-4 border-gray-300 dark:border-gray-600 rounded-lg md:max-w-sm w-full h-60 overflow-auto"></ul>
+        </div>
+
+        <!-- Settle Btn -->
+        <button type="button" id="settleBtn" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm line-clamp-1 min-w-24 text-center px-5 py-2.5 mt-6 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 cursor-pointer flex flex-col items-center">
+          <svg class="w-6 h-6 rotate-90 md:rotate-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m16 10 3-3m0 0-3-3m3 3H5v3m3 4-3 3m0 0 3 3m-3-3h14v-3"/>
+          </svg>
+          Settle It
+        </button>
+
+        <!-- Who Owes Whom -->
+        <div class="md:max-w-sm w-full">
+          <h3 class="font-semibold mb-2">Who Owes Whom?</h3>
+          <ul id="settledList" class="border p-4 bg-yellow-100/10 dark:bg-transparent border-yellow-300 dark:border-yellow-600 rounded-lg md:max-w-sm w-full h-60 overflow-auto"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- footer -->
+  <footer class="max-w-screen-xl w-full mx-auto p-6 text-center text-xs  dark:text-white ">
+    <p>Made with 🧡 as a project task, along with TapaScript.</p>
+  </footer>
+</body>
+</html>
