@@ -33,8 +33,7 @@ export class DOMHelpers {
 
   static appendFragment(parent, items, createItemFn) {
     const fragment = document.createDocumentFragment();
-
-    items.forEach(item => {
+    items.forEach((item) => {
       fragment.appendChild(createItemFn(item));
     });
 

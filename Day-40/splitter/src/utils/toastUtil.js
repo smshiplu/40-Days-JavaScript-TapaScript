@@ -1,6 +1,5 @@
 import Toastify from 'toastify-js';
 
-
 export function showSuccessToast(message) {
   Toastify({
     text: message,

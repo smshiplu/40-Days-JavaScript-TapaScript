@@ -44,19 +44,21 @@ export class ExpenseService {
     const userCount = this.userService.getUserCount();
 
     if(userCount === 0) {
-      throw new Error("Nothing to seattle!");
-      // return [];
+      // throw new Error("Nothing to seattle!");
+      return [];
     }
 
     const net = {};
     const userNames = this.userService.getAllUserNames();
 
+    // Initialize the balance
     userNames.forEach(name => {
       net[name] = 0;
     });
 
+    // Calculate net balance
     this.expenses.forEach(expense => {
-      const share = expense.amount/userCount;
+      const share = expense.amount / userCount;
 
       userNames.forEach(name => {
         if(name === expense.paidBy) {
@@ -64,7 +66,7 @@ export class ExpenseService {
         } else {
           net[name] -= share;
         }
-      })
+      });
     })
 
     return this.calculateSettlements(net);
@@ -72,9 +74,9 @@ export class ExpenseService {
 
   calculateSettlements(net) {
     const results = [];
-
+    
     // Step 1: Filter Out Balanced People
-    const names = Object.keys(net).filter( name => Math.abs(net[name]) > 0.01)
+    const names = Object.keys(net).filter( name => Math.abs(net[name]) > 0.01);
     
     // Step 2: Sort by Balance
     names.sort((a, b) => net[a] - net[b]); 
@@ -92,14 +94,13 @@ export class ExpenseService {
       if(settlement > 0.01) {
         net[debtor] += settlement; // Reduce debtor's debt
         net[creditor] -= settlement; //Reduce creditor's credit
-        results.push(
-          `${debtor} owes ${creditor} $${settlement.toFixed(2)}`
-        );
-
+        results.push(`${debtor} owes ${creditor} $${settlement.toFixed(2)}`);
+        
         if(Math.abs(net[debtor]) < 0.01) i++; // Debtor is settled, move to next
         if(Math.abs(net[creditor]) < 0.01) j--; //Creditor is settled, and move to previous
       }
-      return results;
     }
+          
+    return results;
   }
 }

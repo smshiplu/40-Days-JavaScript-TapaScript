@@ -142,8 +142,15 @@ export class ExpenseUI {
       `${expense.paidBy} paid ${expense.amount}`;
 
     const listItem = DOMHelpers.createListItem(text, "animate-slide-in-out text-gray-900 text-sm line-clamp-1 bg-gray-200 mb-2 p-1 rounded-xs flex items-center", "text-red-500 dark:text-red-400");
-
-    this.elements.expenseList.appendChild(listItem);
+    const expenses = this.expenseService.getAllExpenses();
+    let timer;
+    expenses.forEach((expense, index) => {
+      clearTimeout(timer)
+      timer = setTimeout(() => {
+        this.elements.expenseList.appendChild(listItem);
+      }, index * 200);
+    });
+    
   }
 
   handleSeattle() {
@@ -165,7 +172,7 @@ export class ExpenseUI {
       this.elements.settledList.appendChild(noResultItem);
       return;
     }
-
+    
     DOMHelpers.appendFragment(this.elements.settledList, results, (result) => DOMHelpers.createListItem(result, "animate-slide-in-out text-gray-900 text-sm line-clamp-1 bg-gray-200 mb-2 p-1 rounded-xs flex items-center", "text-green-500 dark:text-green-400"));
   }
 
