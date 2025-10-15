@@ -1,6 +1,6 @@
 console.log("** 1. Odd or Even? **");
-
-console.log(10 % 2 === 0 ? "Even" : "Odd");
+const number = 10;
+console.log(number % 2 === 0 ? "Even" : "Odd"); //Even
 console.log(`\n`);
 
 console.log("** 2. Do you have a Driving License? **");
@@ -32,13 +32,15 @@ console.log(`\n`);
 
 
 console.log("** 5. Create an Electricity Bill Calculator **");
-const perDayUnit = 5;
-const perUnitCost = 150;
-const perDayCost = perDayUnit * perUnitCost;
-const perMonthCost = perDayCost * 30;
-const yearlyCost = perMonthCost * 12;
-console.log(`Per month unit cost:` , perMonthCost);
-console.log(`Annual payment with 20 % discount: `, yearlyCost - ((yearlyCost * 20) / 100));
+function electricityBillCalculator(perDayUnit, perUnitCost) {
+  const perDayCost = perDayUnit * perUnitCost;
+  const perMonthCost = perDayCost * 30;
+  const yearlyCost = perMonthCost * 12;
+  console.log(`Per month unit cost:` , perMonthCost);
+  console.log(`Annual payment with 20 % discount: `, yearlyCost - ((yearlyCost * 20) / 100));
+}
+electricityBillCalculator(5, 150); //Per month unit cost: 22500 
+                                  // Annual payment with 20 % discount:  216000
 console.log(`\n`);
 
 
@@ -52,7 +54,7 @@ const leapYearChecker = (year) => {
   }
   return days.length > 28 ? "This year has leap" : "This year has no leap";
 }
-console.log(leapYearChecker(1008));
+console.log(leapYearChecker(1008)); // This year has leap
 console.log(`\n`);
 
 
@@ -69,7 +71,7 @@ function maxNumber () {
   }
   return result;
 }
-console.log(maxNumber());
+console.log(maxNumber()); //100
 console.log(`\n`);
 
 

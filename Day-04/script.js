@@ -43,7 +43,10 @@ function calculator (operator) {
       console.log("No operator found");
   }
 }
-calculator("/");
+calculator("+"); // 110
+calculator("-"); // 90
+calculator("*"); // 1000
+calculator("/"); // 10
 console.log(`\n`);
 
 console.log(`** 4. Pay for your movie ticket \n`);
@@ -58,54 +61,71 @@ function ticketPrice(age) {
     console.log("Ticket price: $3");
   }
 }
-ticketPrice(18);
+ticketPrice(18); // Ticket price: $10
 console.log(`\n`);
 
 console.log(`** 5. Horoscope Sign Checker \n`);
 function horoscopeSignChecker (month) {
   switch(month) {
     case "March" :
-      console.log("Your Horoscope Sign is: Aries");
-      break;
     case "April" :
-      console.log("Your Horoscope Sign is: Taurus");
+      console.log("Your Horoscope Sign is: Aries or Taurus");
       break;
+
     case "May" :
-      console.log("Your Horoscope Sign is: Gemini");
-      break;
     case "June" :
-      console.log("Your Horoscope Sign is: Cancer");
+      console.log("Your Horoscope Sign is: Gemini or Cancer");
       break;
+
     case "July" :
-      console.log("Your Horoscope Sign is: Leo");
-      break;
     case "August" :
-      console.log("Your Horoscope Sign is: Virgo");
+      console.log("Your Horoscope Sign is: Leo or Virgo");
       break;
+
     case "September" :
-      console.log("Your Horoscope Sign is: Libra");
-      break;
     case "October" :
-      console.log("Your Horoscope Sign is: Scorpio");
+      console.log("Your Horoscope Sign is: Libra Scorpio");
       break;
+
     case "November" :
-      console.log("Your Horoscope Sign is: Sagittarius");
-      break;
     case "December" :
-      console.log("Your Horoscope Sign is: Capricorn");
+      console.log("Your Horoscope Sign is: Sagittarius or Capricorn");
       break;
+
     case "January" :
-      console.log("Your Horoscope Sign is: Aquarius");
-      break;
     case "February" :
-      console.log("Your Horoscope Sign is: Pisces");
+      console.log("Your Horoscope Sign is: Aquarius or Pisces");
       break;
+
     default:
       console.log("No valid month");
   }
 }
-horoscopeSignChecker("March");
+horoscopeSignChecker("March"); // Your Horoscope Sign is: Aries or Taurus
 console.log(`\n`);
+
+console.log(`** 6. Which Triangle?
+A triangle has 3 sides. A Triangle type is determined by its sides:
+- All sides equal is called, \`Equilateral Triangle\`.
+- Two sides equal is called, \`Isosceles Triangle\`.
+- All sides different is called, \`Scalene Triangle\`.
+
+Take the sides of a triangle as input and write a program to determine the triangle type. Change the inputs everytime manually to see if the output changes correctly.\n`);
+
+function triangleType(a, b, c) {
+  if( a === b && b == c) {
+    console.log("All sides equal Triangle (Equilateral Triangle)");
+  } else if( a===b || b===c || a === c ) {
+    console.log("Two sides equal Triangle (Isosceles Triangle)");
+  } else if(  a !== b && c!== b) {
+    console.log("All sides different Triangle (Isosceles Triangle)");
+  } else {
+    console.log("Provide three arguments for the Triangle");
+  }
+}
+
+triangleType( 10, 10, 1) //Two sides equal Triangle (Isosceles Triangle)
+
 
 
 
