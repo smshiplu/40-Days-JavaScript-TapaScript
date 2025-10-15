@@ -15,8 +15,8 @@ pyramidPattern();
 
 function pyramidPattern() {
   let output = "";
-  for (let index = 1; index <= 5; index++) {
-    for(let i = 1; i <= index; i++) {
+  for (let i = 1; i <= 5; i++) {
+    for(let j = 1; j <= i; j++) {
       output += "*";
     }
     console.log(output);
