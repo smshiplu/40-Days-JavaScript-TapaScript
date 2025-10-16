@@ -20,8 +20,8 @@ const person = {
     }
   }
 };
-const { name, company, company: {location: {city} } } = person;
-console.log(name, company, city);
+const { name, company: {name: companyName, location: {city} } } = person;
+console.log(name, companyName, city);  // Tapas tapaScript Bangalore
 console.log(`\n`);
 
 console.log(`4. Build a Student Management System\n`);
