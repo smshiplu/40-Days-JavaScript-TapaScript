@@ -56,12 +56,21 @@ console.log(`\n`);
 console.log(`3. Create a button dynamically and attach a click event handler using a closure. The handler should count and log how many times the button was clicked.\n`);
 function buttonEventClosure() {
   let clickCount = 0;
-  document.getElementById("clickCountBtn").addEventListener("click",  e => {
+  const button = document.createElement("button");
+  button.innerText = "Click Me";
+
+  // Attach the click event handler using a closure
+  button.addEventListener("click",  e => {
     clickCount++;
     console.log("Button Clicked:", clickCount, " Times");
   });
+
+  return button;
 }
-console.log(buttonEventClosure());
+
+const myBtn = buttonEventClosure();
+document.body.appendChild(myBtn);
+
 console.log(`\n`);
 
 console.log(`4. Write a function createMultiplier(multiplier) that returns another function to multiply numbers.\n`);
@@ -72,10 +81,20 @@ function createMultiplier(multiplier) {
 }
 // createMultiplier(3)(10)
 const mulRes = createMultiplier(3);
-mulRes(15);
-mulRes(20);
-mulRes(2);
+mulRes(15); // Multiplier:3, Number:15, Result:45
+mulRes(20); // Multiplier:3, Number:20, Result:60
+mulRes(2); // Multiplier:3, Number:2, Result:6
 console.log(`\n`);
+
+console.log(`5. What happens if a closure references an object?
+- 1) The object is garbage collected immediately
+- 2) The object remains in memory as long as the closure exists
+- 3) The object is automatically cloned
+- 4) None of the Above.\n`);
+
+console.log(`2) The object remains in memory as long as the closure exists`);
+
+
 
 console.log(`6. Write a function factory of counter to increment, decrement, and reset a counter. Use closure to refer the count value across the functions.\n`);
 function incDecCounter() {
