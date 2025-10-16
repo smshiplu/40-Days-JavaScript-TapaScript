@@ -2,11 +2,11 @@ console.log(`1. What will be the output of the following code and why?\n`);
 
 let user = "Alice";
 function outer() {
-    function inner() {
-      console.log(user); //Bob
-    }
-    let user = "Bob";
-    inner();
+  function inner() {
+    console.log(user); //Bob
+  }
+  let user = "Bob";
+  inner();
 }
 outer();
 console.log(`\n`);
@@ -81,12 +81,13 @@ console.log(`\n`);
 console.log(`6. What will be the output and why?\n`);
 console.log(`
 console.log(a);
-let a = 10;\n`);
+let a = 10;
+\n`);
 // console.log(a);
 // let a = 10
 //GEC
   //CP
-    //a
+    // a will set to memory with the no value and kept in the temporal dead zone
   //EP
     //here reference error will be occurred. because variable a has no existence in any scope.
 
